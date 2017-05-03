@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="#9964cd3c"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00ffffff"/>
+
+        <ImageButton
+            android:id="@+id/bt_king_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/running"
+            android:background="#00ffffff"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00ffffff"/>
+
+        <ImageButton
+            android:id="@+id/bt_mountain_list"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/mountains_couple"
+            android:scaleType="fitCenter"
+            android:background="#00ffffff"
+            />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"/>
+        <ImageButton
+            android:id="@+id/bt_honor"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/medal_global"
+            android:scaleType="fitCenter"
+            android:background="#00ffffff"
+            />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/bt_map"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/location_pointer"
+            android:scaleType="fitCenter"
+            android:background="#00ffffff"
+            />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_person_white_24dp"
+            android:background="#00ffffff"
+            android:scaleType="fitCenter"
+            android:id="@+id/bt_mypage" />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_container"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/kinglist_fragment"
+            android:name="company.co.kr.mountainking.Fragment_kinglist"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

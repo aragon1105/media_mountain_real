@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:background="#64CD3C">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_title"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="5dp"
+            android:text="Sign up now!"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:textSize="45dp"
+            android:textColor="#ffff"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="#64cd3c">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@drawable/kakao_button_style"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="30dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/kakao_symbol"
+                    android:id="@+id/imageView"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:text="      Login with KakaoTalk"
+                    android:background="#00ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#8b5827"
+                    android:id="@+id/bt_kakaolinking"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:inputType="textPersonName"
+                android:hint="  ex) mountainking@gmail.com"
+                android:ems="15"
+                android:background="@drawable/edit_text_style"
+                android:textColorHint="#969696"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/email_et"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:inputType="textPersonName"
+                android:background="@drawable/edit_text_style"
+                android:textColorHint="#969696"
+                android:hint="  이름(닉네임)을 입력하세요"
+                android:ems="15"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/name_et" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:hint="  ID를 입력하세요"
+                android:ems="15"
+                android:background="@drawable/edit_text_style"
+                android:textColorHint="#969696"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/signup_id_et" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberPassword"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:hint="  비밀번호를 입력하세요."
+                android:ems="15"
+                android:background="@drawable/edit_text_style"
+                android:textColorHint="#969696"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/signup_pw_et" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:background="#64cd3c">
+
+        <Button
+            android:text="Create Account"
+            android:background="@drawable/button_style"
+            android:paddingRight="110dp"
+            android:paddingLeft="110dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_createaccount"/>
+    </LinearLayout>
+
+</LinearLayout>
