@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class Login extends AppCompatActivity {
 
     @Override
@@ -30,7 +28,7 @@ public class Login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Login.this, king_list.class);
+                Intent i = new Intent(Login.this, MainActivity.class);
                 startActivity(i);
 
             }

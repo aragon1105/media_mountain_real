@@ -1,9 +1,7 @@
 package company.co.kr.mountainking;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,62 +13,42 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Jaeheon on 2017-05-06.
+ * Created by Jaeheon on 2017-05-03.
  */
-
-public class Fragment_mountainlist extends Fragment{
+public class MyActivity extends Activity {
 
     //MyActivity 시작
     private RecyclerView mRecyclerView;
-    private MountainAdapter mAdapter;
+    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData> myDataset;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.mountain_list_fragment, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.mt_recyclerview);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.cardview);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
-
-
-        // 퍼포먼스 증가시킴
-        // RecylerView의 사이즈를 못바꾸게함
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-
-        mAdapter = new MountainAdapter(myDataset);
+        myDataset = new ArrayList<>();
+        mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-        mRecyclerView.setAdapter(mAdapter);
-        //initDataset();
-
-
-        myDataset = new ArrayList<>();
-        myDataset.add(new MyData("#지리산",R.mipmap.jiri));
-        myDataset.add(new MyData("#설악산",R.mipmap.hanra));
-        myDataset.add(new MyData("#한라산",R.mipmap.seolak));
-
-        return view;
-    }
-
-
-    private void initDataset(){
-
-        myDataset = new ArrayList<>();
         myDataset.add(new MyData("#지리산",R.mipmap.jiri));
         myDataset.add(new MyData("#설악산",R.mipmap.hanra));
         myDataset.add(new MyData("#한라산",R.mipmap.seolak));
     }
-
 }
 
-
-class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
+class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private ArrayList<MyData> mDataset;
 
     // Provide a reference to the views for each data item
@@ -89,16 +67,17 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MountainAdapter(ArrayList<MyData> myDataset) {
-
+    public MyAdapter(ArrayList<MyData> myDataset) {
         mDataset = myDataset;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MountainAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                   int viewType) {
         // create a new view
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview, parent, false);
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_cardview, parent, false);
         // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
 
@@ -119,7 +98,13 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
     public int getItemCount() {
         return mDataset.size();
     }
-
-
 }
 
+class MyData{
+    public String text;
+    public int img;
+    public MyData(String text, int img){
+        this.text = text;
+        this.img = img;
+    }
+}

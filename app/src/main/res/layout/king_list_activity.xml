@@ -101,12 +101,6 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/kinglist_fragment"
-            android:name="company.co.kr.mountainking.Fragment_kinglist"
-            />
 
     </LinearLayout>
 
