@@ -80,7 +80,7 @@
                 android:background="@drawable/edit_text_style"
                 android:textColorHint="#969696"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/email_et"/>
+                android:id="@+id/signup_email_et"/>
 
             <EditText
                 android:layout_width="wrap_content"
@@ -90,23 +90,23 @@
                 android:inputType="textPersonName"
                 android:background="@drawable/edit_text_style"
                 android:textColorHint="#969696"
-                android:hint="  이름(닉네임)을 입력하세요"
+                android:hint="  이름을 입력하세요"
                 android:ems="15"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/name_et" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#000000"
-                android:hint="  ID를 입력하세요"
-                android:ems="15"
-                android:background="@drawable/edit_text_style"
-                android:textColorHint="#969696"
                 android:layout_marginBottom="10dp"
                 android:id="@+id/signup_id_et" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:hint="  비밀번호를 입력하세요"
+                android:ems="15"
+                android:background="@drawable/edit_text_style"
+                android:textColorHint="#969696"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/signup_pw_et" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -114,12 +114,12 @@
                 android:inputType="numberPassword"
                 android:layout_gravity="center_horizontal"
                 android:textColor="#000000"
-                android:hint="  비밀번호를 입력하세요."
+                android:hint="  비밀번호를 다시 입력하세요."
                 android:ems="15"
                 android:background="@drawable/edit_text_style"
                 android:textColorHint="#969696"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/signup_pw_et" />
+                android:id="@+id/signup_pw2_et" />
 
         </LinearLayout>
     </LinearLayout>
@@ -140,6 +140,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClick"
             android:id="@+id/bt_createaccount"/>
     </LinearLayout>
 

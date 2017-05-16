@@ -2,6 +2,9 @@ package company.co.kr.mountainking;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -26,6 +29,8 @@ public class Fragment_mountainlist extends Fragment{
     private MountainAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData> myDataset;
+    MainActivity intent;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +50,12 @@ public class Fragment_mountainlist extends Fragment{
         mAdapter = new MountainAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-
+        mAdapter.setItemClick(new MountainAdapter.ItemClick(){
+            @Override
+            public void onClick(View view, int position){
+                intent.displayView(3);
+            }
+        });
         return view;
     }
 
@@ -105,7 +115,8 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 if(itemClick != null){
-                    itemClick.onClick(view, Position);
+
+                    //itemClick.onClick(view, Position);
                 }
             }
         });
@@ -142,12 +153,17 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
     //아이템 클릭시 실행 함수
     public interface ItemClick{
         public void onClick(View view, int position);
+
     }
 
     //아이템 클릭시 실행 함수를 등록하는 함수
-    public void setItenClick(ItemClick itemClick){
+    public void setItemClick(ItemClick itemClick){
+
+
         this.itemClick = itemClick;
     }
+
+
 
 
 }

@@ -16,6 +16,8 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Intent i = new Intent(MainActivity.this, MyActivity.class);
                 //startActivity(i);
-                displayView(4);
+                //displayView(4);
             }
         });
 
     }
 
-    private void displayView(int position){
+    public void displayView(int position){
         Fragment fragment = null;
         ListFragment listfragment = null;
 
@@ -115,5 +117,11 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().replace(R.id.fragment_container, listfragment).commit();
         }
 
+    }
+
+    public void changeActivity(Class _class){
+        Intent intent = new Intent(this, _class);
+        startActivity(intent);
+        //finish();
     }
 }

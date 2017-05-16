@@ -128,6 +128,7 @@
                 android:layout_marginTop="50dp"
                 android:text="Log in"
                 android:id="@+id/btn_login"
+                android:onClick="onClick"
                 android:layout_gravity="center_horizontal"
                 android:textSize="17dp" />
 
