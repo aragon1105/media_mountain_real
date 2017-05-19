@@ -102,22 +102,19 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        final int Position = position;
-
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.mTextView.setText(mDataset.get(position).text);
         holder.mImageView.setImageResource(mDataset.get(position).img);
 
+        // 클릭된 산의 index를 보냄
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(itemClick != null){
+                Drawing_GPS.pos = position;
 
-                    //itemClick.onClick(view, Position);
-                }
             }
         });
 

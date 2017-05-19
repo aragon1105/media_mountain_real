@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class Drawing_GPS extends AppCompatActivity {
+
+    public static Integer pos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -132,7 +132,6 @@ class kinglistAdapter extends BaseAdapter {
         item.setMt_location(location);
 
         listViewItemList.add(item);
-
     }
 
 

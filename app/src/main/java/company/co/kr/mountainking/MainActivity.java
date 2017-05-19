@@ -6,6 +6,7 @@ import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -59,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
         map_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayView(2);
+                Intent i = new Intent(MainActivity.this, Drawing_GPS.class);
+                startActivity(i);
+                Log.d("값은:", Drawing_GPS.pos.toString());
             }
         });
 
@@ -73,9 +76,7 @@ public class MainActivity extends AppCompatActivity {
         mtlist_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(MainActivity.this, MyActivity.class);
-                //startActivity(i);
-                //displayView(4);
+                displayView(4);
             }
         });
 
