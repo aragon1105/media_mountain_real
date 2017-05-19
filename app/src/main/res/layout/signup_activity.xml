@@ -70,17 +70,17 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/signup_id_et"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textColor="#000000"
-                android:inputType="textPersonName"
-                android:hint="  ex) mountainking@gmail.com"
-                android:ems="15"
-                android:background="@drawable/edit_text_style"
-                android:textColorHint="#969696"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/signup_email_et"/>
+                android:background="@drawable/edit_text_style"
+                android:ems="15"
+                android:hint="  아이디를 입력하세요"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textColorHint="#969696" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -88,12 +88,12 @@
                 android:layout_gravity="center_horizontal"
                 android:textColor="#000000"
                 android:inputType="textPersonName"
-                android:background="@drawable/edit_text_style"
-                android:textColorHint="#969696"
                 android:hint="  이름을 입력하세요"
                 android:ems="15"
+                android:background="@drawable/edit_text_style"
+                android:textColorHint="#969696"
                 android:layout_marginBottom="10dp"
-                android:id="@+id/signup_id_et" />
+                android:id="@+id/signup_name_et"/>
 
             <EditText
                 android:layout_width="wrap_content"

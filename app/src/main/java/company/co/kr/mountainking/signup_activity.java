@@ -30,7 +30,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
 
     private ProgressDialog pDialog;
     EditText id_et;
-    EditText mail_et;
+    EditText name_et;
     EditText password_et;
     EditText password_et2;
 
@@ -46,7 +46,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         Button kakao_lingking = (Button) findViewById(R.id.bt_kakaolinking);
 
         id_et = (EditText) findViewById(R.id.signup_id_et);
-        mail_et = (EditText) findViewById(R.id.signup_email_et);
+        name_et = (EditText) findViewById(R.id.signup_name_et);
         password_et = (EditText) findViewById(R.id.signup_pw_et);
         password_et2 = (EditText) findViewById(R.id.signup_pw2_et);
 
@@ -59,7 +59,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         create_account.setOnClickListener(this);
 
     }
-    private void registerUser(final String mail, final String id, final String password) {
+    private void registerUser(final String id, final String name, final String password) {
         String tag_string_req = "req_register";
 
         pDialog.setMessage("Ready...");
@@ -117,8 +117,8 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
                 // Posting params to register url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("tag", "register");
-                params.put("mail", mail);
                 params.put("id", id);
+                params.put("name", name);
                 params.put("password", password);
 
                 //회원정보 서버로 보내기
@@ -151,7 +151,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
 
                 String id = id_et.getText().toString();
                 String password = password_et.getText().toString();
-                String mail = mail_et.getText().toString();
+                String name = name_et.getText().toString();
                 String password2 = password_et2.getText().toString();
 
 
@@ -159,8 +159,8 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
                     Toast.makeText(signup_activity.this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                 else {
 
-                    if (!id.isEmpty() && !password.isEmpty()&&!mail.isEmpty()) {
-                        registerUser(mail,id,password);
+                    if (!id.isEmpty() && !password.isEmpty()&&!name.isEmpty()) {
+                        registerUser(id,name,password);
                     } else {
                         Toast.makeText(signup_activity.this, "모든 정보를 입력해 주세요.", Toast.LENGTH_SHORT).show();
                     }
