@@ -66,7 +66,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         showDialog();
 
         //서버에 연결
-        StringRequest strReq = new StringRequest(Request.Method.POST, "http://202.30.23.51/~sap16t10/index.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST, "http://52.78.108.188/mtking/index.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 hideDialog();

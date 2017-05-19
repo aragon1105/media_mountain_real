@@ -78,7 +78,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
 
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                "http://202.30.23.51/~sap16t10/index.php", new Response.Listener<String>() {//서버에 연결
+                "http://52.78.108.188/mtking/index.php", new Response.Listener<String>() {//서버에 연결
 
             @Override
             public void onResponse(String response) {
