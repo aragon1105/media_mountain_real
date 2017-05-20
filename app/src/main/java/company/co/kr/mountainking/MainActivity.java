@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, Drawing_GPS.class);
                 startActivity(i);
-                Log.d("값은:", Drawing_GPS.pos.toString());
+              //  Log.d("값은:", Drawing_GPS.pos.toString());
             }
         });
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 listfragment = new Fragment_kinglist();
                 break;
             case 2:
-                fragment = new Fragment_map();
+
                 break;
             case 3:
                 fragment = new Fragment_mypage();
