@@ -38,7 +38,7 @@ dependencies {
     compile 'cz.msebera.android:httpclient:4.4.1.1'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
 
-    compile 'com.google.android.gms:play-services:10.0.0'
+    compile 'com.google.android.gms:play-services-maps:10.2.1'
     compile 'com.google.android.gms:play-services-location:10.2.1'
     compile 'net.gotev:uploadservice:2.1'
     compile 'com.github.nkzawa:socket.io-client:0.3.0'
