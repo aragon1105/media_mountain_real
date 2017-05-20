@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Drawing_GPS extends Activity implements OnMapReadyCallback {
 
-    public static Integer pos;// 산번호
+    public static Integer pos = 0;// 산번호
 
 
     static final LatLng SUWON = new LatLng(37.280291, 127.007802);//수원 위치 는 기본적으로 띄어주기 위해서

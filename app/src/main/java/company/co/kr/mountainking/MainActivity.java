@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, Drawing_GPS.class);
                 startActivity(i);
-              //  Log.d("값은:", Drawing_GPS.pos.toString());
+                Log.d("값은:", Drawing_GPS.pos.toString());
             }
         });
 

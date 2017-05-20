@@ -1,19 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Drawing_GPS">
 
-    <fragment
-        android:id="@+id/map"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="com.google.android.gms.maps.MapFragment"
-        />
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageButton
+            android:id="@+id/gps_reset_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/gps_finish_bt"
+            android:layout_below="@+id/gps_mtname"
+            android:layout_marginEnd="14dp"
+            android:layout_marginTop="64dp"
+            android:background="@color/transparent"
+            app:srcCompat="@drawable/power" />
+
+        <ImageButton
+            android:id="@+id/gps_start_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="18dp"
+            android:layout_marginEnd="34dp"
+            android:background="@color/transparent"
+            app:srcCompat="@drawable/route" />
+
+        <ImageButton
+            android:id="@+id/gps_finish_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/gps_start_bt"
+            android:layout_marginStart="37dp"
+            android:background="@color/transparent"
+            app:srcCompat="@drawable/flag" />
+
+        <TextView
+            android:id="@+id/gps_mtname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#66000000"
+            android:text="ㅇㅇ산 정복중"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="30dp" />
+
+        <ImageButton
+            android:id="@+id/gps_stat_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/gps_start_bt"
+            android:layout_alignTop="@+id/gps_reset_bt"
+            android:layout_marginStart="13dp"
+            android:background="@color/transparent"
+            app:srcCompat="@drawable/multiply" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/gps_stat_bt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="29dp"
+            android:text="Button" />
+
+    </RelativeLayout>
 
 
-
-
-</RelativeLayout>
+</FrameLayout>

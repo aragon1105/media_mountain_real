@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -114,7 +115,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 Drawing_GPS.pos = position;
-
+                Log.d("아이템","클릭됨");
             }
         });
 
