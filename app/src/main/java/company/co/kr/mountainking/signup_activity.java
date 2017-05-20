@@ -85,7 +85,7 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
                         // Launch login activity
                         Intent intent = new Intent(
                                 signup_activity.this,
-                                MainActivity.class);
+                                Login.class);
                         startActivity(intent);
                         finish();
 
