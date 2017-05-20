@@ -28,7 +28,7 @@ import java.util.Date;
  * Created by Jaeheon on 2017-05-13.
  */
 
-public class Drawing_GPS extends Activity implements OnMapReadyCallback , View.OnClickListener{
+public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
     public static Integer pos = 0;// 산번호
 
@@ -65,6 +65,37 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback , View.O
         MapFragment mapFragment =(MapFragment) getFragmentManager().findFragmentById(R.id.map);//구글맵 띄우기 !
         mapFragment.getMapAsync(this);
 
+        btn_str.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"asdf",Toast.LENGTH_LONG);
+                Log.d("클릭","되었음");
+                PolylineOptions polyop=new PolylineOptions().add(new LatLng(36, 125));
+                Polyline poly=googleMap.addPolyline(polyop);
+            }
+        });
+
+        btn_fini.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btn_rst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        btn_sts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
 
@@ -81,26 +112,4 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback , View.O
 
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-
-            case R.id.gps_btstart://처음에 시작 누르면 폴리 라인 만들고 나서 플래그 주어야하나? <-이것좀 잘 생각해 보고 처음 시작 위도 경도 위치 저장!
-                PolylineOptions polyop=new PolylineOptions().add(new LatLng(36, 125));
-
-                Toast.makeText(getApplicationContext(),"asdf",Toast.LENGTH_SHORT);
-                Polyline poly=googleMap.addPolyline(polyop);
-
-                break;
-            case R.id.gps_finishbt://끝 위도 경도 위치 저장 !
-                break;
-
-            case R.id.gps_resetbt:
-                break;
-
-            case R.id.gps_statbt:
-                break;
-
-        }
-    }
 }
