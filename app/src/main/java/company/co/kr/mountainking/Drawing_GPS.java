@@ -2,10 +2,12 @@ package company.co.kr.mountainking;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -61,11 +63,15 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     private String latitude;
     private String longitude;
 
-    private Boolean flag=true;
+    private Boolean flag=false;
 
-    private Timer timer;
+    private int s_timer;//시작 시간
+    private int f_timer;//끝나는 시간
     private Handler handler;
     private  PolylineOptions polyop;
+    private  PolylineOptions polyop2;
+
+
 
 
     @Override
@@ -100,44 +106,40 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
             }
         }
 
-
         btn_str=(Button) findViewById(R.id.gps_btstart);
         btn_fini=(Button) findViewById(R.id.gps_finishbt);
         btn_rst=(Button) findViewById(R.id.gps_resetbt);
         btn_sts=(Button) findViewById(R.id.gps_statbt);
 
-
-
-
-
         MapFragment mapFragment =(MapFragment) getFragmentManager().findFragmentById(R.id.map);//구글맵 띄우기 !
         mapFragment.getMapAsync(this);
 
-
     }
+
 
     @Override
     public void onMapReady(GoogleMap map) {
 
-
-
-
-
         googleMap = map;
         googleMap.clear();//리셋 에서 넣어둘려고 잡아둔것임!
-        /*googleMap.addPolyline(new PolylineOptions()
-                .add(new LatLng(36,125), new LatLng(32,124))
-                .width(5)
-                .color(Color.RED));*/
+
+
+        polyop=new PolylineOptions();
+
 
         googleMap.addMarker(new MarkerOptions().position(SUWON).title("Suwon")).showInfoWindow();//수원만 항시 찍어줌
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SUWON));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(11));
 
+
+
         btn_str.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { gps = new GpsInfo(Drawing_GPS.this);
+
+                flag=true;
+                //여기서 s_timer 에 시간 한번 넣어야함!
                 // GPS 사용유무 가져오기
                 if (gps.isGetLocation()) {
 
@@ -145,39 +147,35 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     double longitude1 = gps.getLongitude();
 
 
-                    s_lat=latitude1;
-                    s_log=longitude1;
+                    s_lat=latitude1;//시작 지점 위치 저장
+                    s_log=longitude1;//시작 지점 위치 저장
 
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
-              /*      Toast.makeText(getApplicationContext(),
-                            "당신의 위치 - \n위도: " + gps.getLatitude() + "\n경도: " + gps.getLongitude(),
-                            Toast.LENGTH_LONG).show();*/
 
-                    //  locationStore(id,number,longitude,latitude);
-                    //글의 번호 및 지금 회원의 아이디 위도 경도 를 디비에 저장시킴
-                    Log.d("asd" ," "+longitude1+latitude1);//값이 0.0 0.0 이니깐 값 자체를 못받아 오는것 같은데
-                    polyop.add(new LatLng(latitude1, longitude1));
-                    polyop.color(Color.RED);
-                    polyop.width(5);
 
-                    googleMap.addPolyline(polyop);
-                    Polyline polyline=googleMap.addPolyline(polyop);
+                    googleMap.addPolyline(polyop
+                            .add(new LatLng(latitude1-0.3,longitude1-0.3), new LatLng(latitude1-0.5,longitude1-0.5))
+                            .width(5)
+                            .color(Color.RED));
+
+
 
                 } else {
                     gps.showSettingsAlert();
+                }
+                if(flag==true){
+
                 }
 
 
                 //여기서 flag가 트루일때 무한루프로 돌게 만들어서 계속 위치 저장? 피니쉬 버튼 누르면 flag를 false로 바꾸기 이렇게 빠져나가기!
 
-                while(flag==true) {
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+               // while(flag==true) {
+                   //* try {
+
+
                     //여기서 슬립을 걸어줘서 멈추게 해야할듯!!!!!!
                     gps = new GpsInfo(Drawing_GPS.this);
                     // GPS 사용유무 가져오기
@@ -189,23 +187,21 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                         latitude = String.valueOf(latitude1);
                         longitude = String.valueOf(longitude1);
 
-                /*        Toast.makeText(getApplicationContext(),
-                                "당신의 위치 - \n위도: " + gps.getLatitude() + "\n경도: " + gps.getLongitude(),
-                                Toast.LENGTH_LONG).show();*/
+                        googleMap.addPolyline(polyop
+                                .add(new LatLng(latitude1,longitude1))
+                                .width(5)
+                                .color(Color.RED));
+
 
                         //  locationStore(id,number,longitude,latitude);
                         //글의 번호 및 지금 회원의 아이디 위도 경도 를 디비에 저장시킴
-                        polyop.add(new LatLng(latitude1, longitude1));
-                        polyop.color(Color.RED);
-                        polyop.width(5);
 
-                        googleMap.addPolyline(polyop);
-                        Polyline polyline=googleMap.addPolyline(polyop);
+
 
                     } else {
                         gps.showSettingsAlert();
                     }
-                }
+              //  }
 
 
             }
@@ -214,6 +210,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
             @Override
             public void onClick(View view) {
                 flag=false;
+                //여기서도 f_timer 시간을 넣어야함
                 gps = new GpsInfo(Drawing_GPS.this);
                 // GPS 사용유무 가져오기
                 if (gps.isGetLocation()) {
@@ -221,24 +218,20 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     double latitude1 = gps.getLatitude();
                     double longitude1 = gps.getLongitude();
 
-                    f_lat=latitude1;
-                    f_long=longitude1;
+                    f_lat=latitude1;//끝지점 위치 저장
+                    f_long=longitude1;//끝지점 위치 저장
 
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
-                  /*  Toast.makeText(getApplicationContext(),
-                            "당신의 위치 - \n위도: " + gps.getLatitude() + "\n경도: " + gps.getLongitude(),
-                            Toast.LENGTH_LONG).show();*/
 
-                    //  locationStore(id,number,longitude,latitude);
-                    //글의 번호 및 지금 회원의 아이디 위도 경도 를 디비에 저장시킴
-                    polyop.add(new LatLng(latitude1, longitude1));
-                    polyop.color(Color.RED);
-                    polyop.width(5);
 
-                    googleMap.addPolyline(polyop);
-                    Polyline polyline=googleMap.addPolyline(polyop);
+                    googleMap.addPolyline(polyop
+                            .add(new LatLng(latitude1,longitude1))
+                            .width(5)
+                            .color(Color.RED));
+
+
 
                 } else {
                     gps.showSettingsAlert();
@@ -249,7 +242,12 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_rst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                flag=true;//만약 다시 시작하게 되면 돌기 시작하여야 함으로 트루로 바꾼것임!
+                googleMap.clear();
+                polyop=new PolylineOptions();
+                googleMap.addMarker(new MarkerOptions().position(SUWON).title("Suwon")).showInfoWindow();
+                flag=false;//만약 다시 시작하게 되면 돌기 시작하여야 함으로 트루로 바꾼것임! 쓰면 안될듯!
+
+                //s_timer f_timer 둘다 클리어 해주어야함 ? 아닌가 상관없나 어차피 그시간 저장하면 다시 들어가니깐???
 
 
             }
@@ -257,6 +255,8 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_sts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //시작 부분에 시간 하고 끝부분 시간 가지고 총 이동시간 구하면 됨!
 
             }
         });

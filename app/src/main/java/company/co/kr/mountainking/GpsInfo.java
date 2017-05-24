@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
+import android.widget.Toast;
 
 public class GpsInfo extends Service implements LocationListener {
 
@@ -100,7 +101,8 @@ public class GpsInfo extends Service implements LocationListener {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (SecurityException e) {
+            Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
