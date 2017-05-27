@@ -130,6 +130,9 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
+                    f_lat=latitude1;
+                    f_long=longitude1;
+
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
                     googleMap.addPolyline(polyop
                             .add(new LatLng(latitude1,longitude1))
