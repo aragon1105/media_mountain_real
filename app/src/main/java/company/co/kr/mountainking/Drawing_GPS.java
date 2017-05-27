@@ -114,7 +114,6 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         handler=new Handler(){
             public void handleMessage(Message message){
 
-                Log.d("asdf","핸들러야");
                 timer=message.arg1;
 
                 gps = new GpsInfo(Drawing_GPS.this);
@@ -126,6 +125,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
                     googleMap.addPolyline(polyop
                             .add(new LatLng(latitude1,longitude1))
                             .width(5)
@@ -136,15 +136,11 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     gps.showSettingsAlert();
                 }
             }
-
-
         };
 
         MapFragment mapFragment =(MapFragment) getFragmentManager().findFragmentById(R.id.map);//구글맵 띄우기 !
         mapFragment.getMapAsync(this);
-
     }
-
 
     @Override
     public void onMapReady(GoogleMap map) {
@@ -152,18 +148,13 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         googleMap = map;
         googleMap.clear();//리셋 에서 넣어둘려고 잡아둔것임!
 
-
         polyop=new PolylineOptions();
 
-
-        googleMap.addMarker(new MarkerOptions().position(SUWON).title("Suwon")).showInfoWindow();//수원만 항시 찍어줌
-
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SUWON));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-
-
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
 
         btn_str.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) { gps = new GpsInfo(Drawing_GPS.this);
 
@@ -174,9 +165,6 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                 intent.putExtra("MESSENGER",messenger);
                 startService(intent);
 
-                //flag=true;
-                //여기서 s_timer 에 시간 한번 넣어야함!
-                // GPS 사용유무 가져오기
                 if (gps.isGetLocation()) {
 
                     double latitude1 = gps.getLatitude();
@@ -185,20 +173,20 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                     s_lat=latitude1;//시작 지점 위치 저장
                     s_log=longitude1;//시작 지점 위치 저장
-
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
+                    googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Start")).showInfoWindow();
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
 
                     googleMap.addPolyline(polyop
-                            .add(new LatLng(latitude1-0.3,longitude1-0.3), new LatLng(latitude1-0.5,longitude1-0.5))
+                            .add(new LatLng(latitude1,longitude1), new LatLng(latitude1,longitude1))
                             .width(5)
                             .color(Color.RED));
 
                 } else {
                     gps.showSettingsAlert();
                 }
-
 
             }
         });
@@ -222,6 +210,10 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
+                    googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Finish")).showInfoWindow();
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
+
+
                     googleMap.addPolyline(polyop
                             .add(new LatLng(latitude1,longitude1))
                             .width(5)
@@ -230,8 +222,6 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                 } else {
                     gps.showSettingsAlert();
                 }
-
-
             }
         });
         btn_rst.setOnClickListener(new View.OnClickListener() {
@@ -239,7 +229,6 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
             public void onClick(View view) {
                 googleMap.clear();
                 polyop=new PolylineOptions();
-                googleMap.addMarker(new MarkerOptions().position(SUWON).title("Suwon")).showInfoWindow();
 
 
             }
@@ -248,8 +237,6 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
             @Override
             public void onClick(View view) {
                 Log.d("asdf",""+timer);
-
-                //시작 부분에 시간 하고 끝부분 시간 가지고 총 이동시간 구하면 됨!
 
             }
         });
@@ -260,7 +247,5 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
-
 
 }

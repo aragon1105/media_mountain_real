@@ -30,45 +30,27 @@ public class GPSService extends IntentService{
         Bundle extras = intent.getExtras();
         Messenger messenger = (Messenger) extras.get("MESSENGER");
 
-
-        Log.d("asdf","1");
-
         while (true) {
 
-            Log.d("asdf","2");
             Message msg = Message.obtain(); //메시지 객체 획득
-           // MainActivity.updated_value += increment;    //보내려는 값을 바꿔줌
-                  //보내려는 값을 메신저 객체에 저장
-            //msg.obj = MainActivity.updated_value;
-
-
 
             if (Drawing_GPS.Continue == true) {
 
-                msg.arg1 =timer;
-
-                Log.d("asdf","3");
                 try {
 
-                    Log.d("asdf","4");
-                    Thread.sleep(60000);
-                  //  msg.arg1 =timer;
-                   // messenger.send(msg);
+                    Thread.sleep(1000);
                     timer++;
-                    Log.d("asdf","5");
+                    msg.arg1 =timer;
+                    if(timer%60==0){
+                        messenger.send(msg);
+                    }
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
-                if (timer % 60 == 0) {
-                    try {
-                      //  msg.arg1 =timer;
-                        messenger.send(msg);
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
 
-                }
             } else {
                 stopSelf();
                 return ;
