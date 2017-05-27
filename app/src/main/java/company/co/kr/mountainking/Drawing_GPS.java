@@ -70,6 +70,11 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     private Boolean flag=false;
 
     private int timer;
+    private double dist;
+    private double avg_speed;
+    private int hour;
+    private int minute;
+    private int second;
 
     private int s_timer;//시작 시간
     private int f_timer;//끝나는 시간
@@ -236,7 +241,18 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_sts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("asdf",""+timer);
+                Log.d("asdf",""+timer);//타이머가 이동한 시간 거리 계산도하자 !
+                CalDistance cal=new CalDistance(s_lat,s_log,f_lat,f_long);
+
+                dist=cal.getDistance();
+                dist=(int)(dist*100)/100.0;
+                avg_speed=dist/timer;
+                avg_speed=(int)(avg_speed*100)/100.0;
+                hour=timer/3600;
+                minute=timer%3600/60;
+                second=timer%3600%60;
+
+                //timer , dist , avg_speed 타이머 이동거리 평균속도 세가지 넘기면됨!!
 
             }
         });
