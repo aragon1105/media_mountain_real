@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".MainActivity">
 
+
         </activity>
 
         <activity android:name=".Drawing_GPS"/>
@@ -37,7 +38,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDi4f8EWcy4hlKd3y7pMLndh-HBJp0hqwc" />
-
+        <service android:name=".GPSService"/>
 
     </application>
     <uses-feature
