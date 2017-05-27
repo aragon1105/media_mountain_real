@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         kingFragment.addItem((ContextCompat.getDrawable(this, R.drawable.mountains)), "800m", "광교산", "정승범", 5, "김준영", 250, "경기 수원시");
         kingFragment.addItem((ContextCompat.getDrawable(this, R.drawable.mountains)), "800m", "광교산", "정승범", 5, "김준영", 250, "경기 수원시");
 */
-
+        displayView(1);
         king_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
