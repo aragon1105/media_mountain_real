@@ -55,7 +55,6 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
     static final LatLng SUWON = new LatLng(37.280291, 127.007802);//수원 위치 는 기본적으로 띄어주기 위해서
 
-
     Button btn_str;
     Button btn_fini;
     Button btn_rst;

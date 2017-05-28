@@ -3,6 +3,7 @@ package company.co.kr.mountainking;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ListFragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.king_list_activity);
-
         ImageButton mtlist_bt = (ImageButton) findViewById(R.id.bt_mountain_list);
         ImageButton honor_bt = (ImageButton) findViewById(R.id.bt_honor);
         ImageButton king_bt = (ImageButton) findViewById(R.id.bt_king_list);
