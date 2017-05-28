@@ -52,6 +52,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/time_dialog"
                 android:layout_weight="1"
+                android:textSize="15dp"
+                android:textColor="#000000"
                 android:gravity="center">
 
                 <requestFocus>
@@ -83,6 +85,9 @@
                 android:layout_height="match_parent"
                 android:id="@+id/distance_dialog"
                 android:layout_weight="1"
+                android:textSize="15dp"
+                android:textColor="#000000"
+
                 android:gravity="center">
 
                 <requestFocus>
@@ -116,6 +121,9 @@
                 android:layout_height="match_parent"
                 android:id="@+id/velocity_dialog"
                 android:layout_weight="1"
+                android:textSize="15dp"
+                android:textColor="#000000"
+
                 android:gravity="center">
 
                 <requestFocus>
