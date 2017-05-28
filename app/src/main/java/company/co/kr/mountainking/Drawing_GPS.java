@@ -48,7 +48,7 @@ import java.util.TimerTask;
 
 public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
-    public static Integer pos ;// 산번호
+    public static Integer pos=100 ;// 산번호
     public static boolean Continue=true;
    // public static int timer=0;
 
@@ -136,6 +136,9 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         else if(pos==3){
             mtname="한라산";
         }
+        else if(pos==100){
+            mtname="oo산";
+        }
         gpsname.setText(mtname+" 정복중");
 
         handler=new Handler(){
@@ -205,6 +208,8 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                     s_lat=latitude1;//시작 지점 위치 저장
                     s_log=longitude1;//시작 지점 위치 저장
+                    f_lat=latitude1;
+                    f_long=longitude1;
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
