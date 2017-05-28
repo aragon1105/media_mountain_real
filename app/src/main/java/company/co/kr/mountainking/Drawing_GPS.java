@@ -2,6 +2,7 @@ package company.co.kr.mountainking;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,6 +19,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -244,6 +248,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_sts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Log.d("asdf",""+timer);//타이머가 이동한 시간 거리 계산도하자 !
                 CalDistance cal=new CalDistance(s_lat,s_log,f_lat,f_long);
 
@@ -257,6 +262,25 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                 //timer , dist , avg_speed 타이머 이동거리 평균속도 세가지 넘기면됨!!
 
+                final Dialog statDialog = new Dialog(Drawing_GPS.this);
+                statDialog.setContentView(R.layout.average_dialog);
+
+                TextView time_dialog = (TextView) statDialog.findViewById(R.id.time_dialog);
+                TextView distance_dialog = (TextView) statDialog.findViewById(R.id.distance_dialog);
+                TextView velocity_dialog = (TextView) statDialog.findViewById(R.id.velocity_dialog);
+
+                Button close = (Button) statDialog.findViewById(R.id.close_dialog);
+                ImageView icon_dialog = (ImageView) statDialog.findViewById(R.id.icon_dialog);
+                icon_dialog.setImageResource(R.drawable.mountain_cc);
+
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        statDialog.dismiss();
+                    }
+                });
+
+                statDialog.show();
             }
         });
 

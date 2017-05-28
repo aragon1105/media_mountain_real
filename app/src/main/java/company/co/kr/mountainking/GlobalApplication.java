@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley;
 /**
  * Created by user on 2016-08-11.
  */
+
 public class GlobalApplication extends Application {
     private static volatile GlobalApplication instance = null;
     private static volatile Activity currentActivity = null;
