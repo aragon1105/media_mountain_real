@@ -48,7 +48,7 @@ import java.util.TimerTask;
 
 public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
-    public static Integer pos = 0;// 산번호
+    public static Integer pos ;// 산번호
     public static boolean Continue=true;
    // public static int timer=0;
 
@@ -64,12 +64,13 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     private GoogleMap googleMap;
     private GpsInfo gps;
 
-    private double s_lat;//시작 위도
-    private double s_log;//시작 경도
-    private double f_lat;//끝 위도
-    private double f_long;//끝 경도
+    private double s_lat=0;//시작 위도
+    private double s_log=0;//시작 경도
+    private double f_lat=0;//끝 위도
+    private double f_long=0;//끝 경도
     private String latitude;
     private String longitude;
+    private String mtname;
 
     private Boolean flag=false;
 
@@ -84,11 +85,11 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     private int f_timer;//끝나는 시간
     private Handler handler;
     private  PolylineOptions polyop;
+    private  TextView gpsname;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
 
 
         super.onCreate(savedInstanceState);
@@ -120,32 +121,51 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_rst=(Button) findViewById(R.id.gps_resetbt);
         btn_sts=(Button) findViewById(R.id.gps_statbt);
 
+
+        gpsname = (TextView) findViewById(R.id.gps_mtname);
+
+        if(pos==0){
+            mtname="광교산";
+        }
+        else if(pos==1){
+            mtname="지리산";
+        }
+        else if(pos==2){
+            mtname="설악산";
+        }
+        else if(pos==3){
+            mtname="한라산";
+        }
+        gpsname.setText(mtname+" 정복중");
+
         handler=new Handler(){
-            public void handleMessage(Message message){
+            public void handleMessage(Message message) {
 
-                timer=message.arg1;
+                timer = message.arg1;
 
-                gps = new GpsInfo(Drawing_GPS.this);
-                if (gps.isGetLocation()) {
+                if (timer % 60 == 0) {
+                    gps = new GpsInfo(Drawing_GPS.this);
+                    if (gps.isGetLocation()) {
 
-                    double latitude1 = gps.getLatitude();
-                    double longitude1 = gps.getLongitude();
+                        double latitude1 = gps.getLatitude();
+                        double longitude1 = gps.getLongitude();
 
-                    latitude = String.valueOf(latitude1);
-                    longitude = String.valueOf(longitude1);
+                        latitude = String.valueOf(latitude1);
+                        longitude = String.valueOf(longitude1);
 
-                    f_lat=latitude1;
-                    f_long=longitude1;
+                        f_lat = latitude1;
+                        f_long = longitude1;
 
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
-                    googleMap.addPolyline(polyop
-                            .add(new LatLng(latitude1,longitude1))
-                            .width(5)
-                            .color(Color.RED));
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1, longitude1), 12));
+                        googleMap.addPolyline(polyop
+                                .add(new LatLng(latitude1, longitude1))
+                                .width(5)
+                                .color(Color.RED));
 
 
-                } else {
-                    gps.showSettingsAlert();
+                    } else {
+                        gps.showSettingsAlert();
+                    }
                 }
             }
         };
@@ -205,6 +225,8 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_fini.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                gpsname.setText(mtname+" 등산 끝!");
                 //flag=false;
 
                 Drawing_GPS.Continue=false;
