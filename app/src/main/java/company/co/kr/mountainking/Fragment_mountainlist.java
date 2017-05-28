@@ -1,9 +1,11 @@
 package company.co.kr.mountainking;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ListFragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,9 +35,9 @@ public class Fragment_mountainlist extends Fragment{
     private ArrayList<MyData> myDataset;
     MainActivity intent;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.mountain_list_fragment, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.mt_recyclerview);
 
@@ -58,6 +60,8 @@ public class Fragment_mountainlist extends Fragment{
                 intent.displayView(3);
             }
         });
+
+
         return view;
     }
 
@@ -116,7 +120,9 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Drawing_GPS.pos = position;
+                //Toast.makeText(, "정복할 산이 설정되었습니다.", Toast.LENGTH_LONG);
                 Log.d("아이템","클릭됨");
 
             }
