@@ -110,19 +110,14 @@ public class MainActivity extends AppCompatActivity {
 
         if(fragment != null){
             FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, fragment).commit();
         }
 
         else if (listfragment != null){
             FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, listfragment).commit();
+            fragmentManager.beginTransaction().addToBackStack(null).replace(R.id.fragment_container, listfragment).commit();
         }
 
     }
 
-    public void changeActivity(Class _class){
-        Intent intent = new Intent(this, _class);
-        startActivity(intent);
-        //finish();
-    }
 }
