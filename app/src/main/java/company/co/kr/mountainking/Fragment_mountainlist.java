@@ -69,6 +69,7 @@ public class Fragment_mountainlist extends Fragment{
     private void initDataset(){
 
         myDataset = new ArrayList<>();
+        myDataset.add(new MyData("#광교산",R.drawable.kwangkyo));
         myDataset.add(new MyData("#지리산",R.mipmap.jiri));
         myDataset.add(new MyData("#설악산",R.mipmap.hanra));
         myDataset.add(new MyData("#한라산",R.mipmap.seolak));
