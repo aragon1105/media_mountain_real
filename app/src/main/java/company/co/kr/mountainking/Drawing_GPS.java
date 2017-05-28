@@ -268,6 +268,9 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
             public void onClick(View view) {
                 googleMap.clear();
                 polyop=new PolylineOptions();
+                hour=0;
+                minute=0;
+                second=0;
 
 
             }

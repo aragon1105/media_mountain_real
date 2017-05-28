@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -117,6 +118,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
             public void onClick(View view) {
                 Drawing_GPS.pos = position;
                 Log.d("아이템","클릭됨");
+
             }
         });
 
