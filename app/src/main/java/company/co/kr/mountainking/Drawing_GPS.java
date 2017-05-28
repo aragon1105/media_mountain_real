@@ -125,27 +125,30 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                 timer=message.arg1;
 
-                gps = new GpsInfo(Drawing_GPS.this);
-                if (gps.isGetLocation()) {
+                if(timer%60==0) {
 
-                    double latitude1 = gps.getLatitude();
-                    double longitude1 = gps.getLongitude();
+                    gps = new GpsInfo(Drawing_GPS.this);
+                    if (gps.isGetLocation()) {
 
-                    latitude = String.valueOf(latitude1);
-                    longitude = String.valueOf(longitude1);
+                        double latitude1 = gps.getLatitude();
+                        double longitude1 = gps.getLongitude();
 
-                    f_lat=latitude1;
-                    f_long=longitude1;
+                        latitude = String.valueOf(latitude1);
+                        longitude = String.valueOf(longitude1);
 
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
-                    googleMap.addPolyline(polyop
-                            .add(new LatLng(latitude1,longitude1))
-                            .width(5)
-                            .color(Color.RED));
+                        f_lat = latitude1;
+                        f_long = longitude1;
+
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1, longitude1), 12));
+                        googleMap.addPolyline(polyop
+                                .add(new LatLng(latitude1, longitude1))
+                                .width(5)
+                                .color(Color.RED));
 
 
-                } else {
-                    gps.showSettingsAlert();
+                    } else {
+                        gps.showSettingsAlert();
+                    }
                 }
             }
         };
@@ -268,6 +271,10 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                 TextView time_dialog = (TextView) statDialog.findViewById(R.id.time_dialog);
                 TextView distance_dialog = (TextView) statDialog.findViewById(R.id.distance_dialog);
                 TextView velocity_dialog = (TextView) statDialog.findViewById(R.id.velocity_dialog);
+
+                time_dialog.setText(hour+"시간"+minute+"분"+second +"초");
+                distance_dialog.setText(dist+"m");
+                velocity_dialog.setText(avg_speed+"m/s");
 
                 Button close = (Button) statDialog.findViewById(R.id.close_dialog);
                 ImageView icon_dialog = (ImageView) statDialog.findViewById(R.id.icon_dialog);

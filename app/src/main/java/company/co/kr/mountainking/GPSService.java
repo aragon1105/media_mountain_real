@@ -41,9 +41,8 @@ public class GPSService extends IntentService{
                     Thread.sleep(1000);
                     timer++;
                     msg.arg1 =timer;
-                    if(timer%60==0){
-                        messenger.send(msg);
-                    }
+                    messenger.send(msg);
+
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
