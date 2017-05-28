@@ -53,7 +53,7 @@ public class GlobalApplication extends Application {
      */
     public static GlobalApplication getGlobalApplicationContext() {
         if(instance == null)
-            throw new IllegalStateException("this application does not inherit com.kakao.GlobalApplication");
+            throw new IllegalStateException("this application does not inherit com.GlobalApplication");
         return instance;
     }
 
