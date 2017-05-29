@@ -145,8 +145,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                 timer = message.arg1;
 
-                if (timer % 60 == 0) {
-                    gps = new GpsInfo(Drawing_GPS.this);
+                gps = new GpsInfo(Drawing_GPS.this);
                     if (gps.isGetLocation()) {
 
                         double latitude1 = gps.getLatitude();
@@ -154,21 +153,22 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                         latitude = String.valueOf(latitude1);
                         longitude = String.valueOf(longitude1);
+                        //이쯤에서 longitude1 과 latitude1 을 함수로 넘겨서 1/2 1/4 1/6 지점을 판별해보자!!
 
                         f_lat = latitude1;
                         f_long = longitude1;
+                        if(timer%60==0){
+                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1, longitude1), 12));
+                            googleMap.addPolyline(polyop
+                                    .add(new LatLng(latitude1, longitude1))
+                                    .width(5)
+                                    .color(Color.RED));
 
-                        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1, longitude1), 12));
-                        googleMap.addPolyline(polyop
-                                .add(new LatLng(latitude1, longitude1))
-                                .width(5)
-                                .color(Color.RED));
-
-
+                        }
                     } else {
                         gps.showSettingsAlert();
-                    }
                 }
+
             }
         };
 
