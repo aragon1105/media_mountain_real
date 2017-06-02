@@ -34,6 +34,7 @@
         </activity>
 
         <activity android:name=".Drawing_GPS"/>
+        <activity android:name=".Mypage_profile"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

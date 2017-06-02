@@ -265,11 +265,30 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_rst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                googleMap.clear();
+             /*   googleMap.clear();
                 polyop=new PolylineOptions();
+
                 hour=0;
                 minute=0;
-                second=0;
+                second=0;*/
+                gps = new GpsInfo(Drawing_GPS.this);
+                // GPS 사용유무 가져오기
+                if (gps.isGetLocation()) {
+
+                    double latitude1 = gps.getLatitude();
+                    double longitude1 = gps.getLongitude();
+
+                    f_lat=latitude1;//끝지점 위치 저장
+                    f_long=longitude1;//끝지점 위치 저장
+
+                    latitude = String.valueOf(latitude1);
+                    longitude = String.valueOf(longitude1);
+
+                    Toast.makeText(getApplicationContext(),"lat: "+latitude1+"\nlong: "+longitude1,Toast.LENGTH_SHORT).show();
+
+                } else {
+                    gps.showSettingsAlert();
+                }
 
 
             }
@@ -321,6 +340,11 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    public int gpscal(double longitude ,double latitude,int pos) {
+
+        return 0;
     }
 
 }
