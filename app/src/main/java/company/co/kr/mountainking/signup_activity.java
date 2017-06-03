@@ -51,9 +51,6 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         password_et2 = (EditText) findViewById(R.id.signup_pw2_et);
 
         TextView title = (TextView) findViewById(R.id.signup_title);
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "TT Masters DEMO Birds Regular.otf");
-        Typeface pricedown = Typeface.createFromAsset(getAssets(), "pricedown bl.ttf");
-        Typeface male = Typeface.createFromAsset(getAssets(), "PentaGrams Malefissent.ttf");
         Typeface tangak = Typeface.createFromAsset(getAssets(), "tangak.otf");
         title.setTypeface(tangak);
         create_account.setOnClickListener(this);

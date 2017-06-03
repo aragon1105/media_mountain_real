@@ -96,11 +96,10 @@
     <LinearLayout
         android:id="@+id/fragment_container"
         android:orientation="vertical"
-        android:background="@color/lightyellow"
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
 
     </LinearLayout>
 

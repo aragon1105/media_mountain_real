@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
+    android:layout_height="80dp"
 
     >
 
     <LinearLayout
-        android:background="@color/lightyellow"
+        android:background="#ffffff"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,9 +18,10 @@
 
         <ImageView
             android:id="@+id/list_mt_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:gravity="center"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/mountains"
             android:layout_weight="1" />
 
@@ -137,6 +138,6 @@
         android:layout_height="match_parent"
         android:id="@+id/textView"
         android:background="#c0c0c0"
-        android:layout_weight="15"/>
+        android:layout_weight="35"/>
 
 </LinearLayout>
