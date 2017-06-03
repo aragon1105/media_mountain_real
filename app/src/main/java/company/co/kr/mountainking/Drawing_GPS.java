@@ -176,7 +176,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                         }
                         else if(positpoint(latitude1,longitude1)==5){
 
-                        }
+                        }//ff
                         else{
 
                         }
