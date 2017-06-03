@@ -174,6 +174,9 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                         else if(positpoint(latitude1,longitude1)==4){
 
                         }
+                        else if(positpoint(latitude1,longitude1)==5){
+
+                        }
                         else{
 
                         }
@@ -405,7 +408,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
     public int positpoint(double latitude,double longitude){
 
-        if(37.3198922579<latitude&&latitude<37.3198922580&&127.04203124267<longitude&&longitude<127.04203124268){
+        if(37.312690191690<latitude&&latitude<37.312690191691&&127.03076560224<longitude&&longitude<127.03076560225){
             if(flag2==true){
                 return 0;
             }
@@ -415,6 +418,19 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
             flag2=true;
             return 1;
+            //시작점
+        }
+
+        if(37.3198922579<latitude&&latitude<37.3198922580&&127.04203124267<longitude&&longitude<127.04203124268){
+            if(flag2==true){
+                return 0;
+            }
+
+
+
+
+            flag2=true;
+            return 2;
             //천년 약수터
         }
         else if(37.32233092283<latitude&&latitude<37.32233092284&&127.03966952133<longitude&&longitude<127.03966952134){
@@ -424,7 +440,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
 
             flag3=true;
-            return 2;
+            return 3;
             //4
         }
         else if(37.32721903312<latitude&&latitude<37.32721903313&&127.03709969785<longitude&&longitude<127.03709969786){
@@ -434,7 +450,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
 
             flag4=true;
-            return 3;
+            return 4;
             //5
         }
         else if(37.32816133934<latitude&&latitude<37.32816133935&&127.03809482865<longitude&&longitude<127.03809482866){
@@ -444,10 +460,12 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
 
             flag5=true;
-            return 4;
+            return 5;
             //6 아마도 정상?
         }
-           /*  3. 아마 천년 약수터?
+           /*
+           1. lat : 37.312690191690834  long: 127.03076560224923
+           3. 아마 천년 약수터?
                 lat: 37.3198922579834
 long:127.04203124267818
                 [정승범] [오후 7:51] 4. lat: 37.32233092283948
