@@ -60,8 +60,6 @@ public class Fragment_mypage extends Fragment {
         });
 
         LineChart lineChart = (LineChart) view.findViewById(R.id.chart);
-        lineChart.forceLayout();
-
         ArrayList<Entry> entries = new ArrayList<>();
         entries.add(new Entry(4f, 0));
         entries.add(new Entry(8f, 1));
