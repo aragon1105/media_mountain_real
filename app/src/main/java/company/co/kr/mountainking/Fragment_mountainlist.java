@@ -165,8 +165,6 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
 
     //아이템 클릭시 실행 함수를 등록하는 함수
     public void setItemClick(ItemClick itemClick){
-
-
         this.itemClick = itemClick;
     }
 

@@ -5,11 +5,24 @@ import android.app.FragmentManager;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.MarkerView;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
+import java.util.ArrayList;
 
 
 /**
@@ -17,7 +30,6 @@ import android.widget.ImageButton;
  */
 
 public class MainActivity extends AppCompatActivity {
-
 
 
     @Override
@@ -29,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton king_bt = (ImageButton) findViewById(R.id.bt_king_list);
         ImageButton map_bt = (ImageButton) findViewById(R.id.bt_map);
         ImageButton mypage_bt = (ImageButton) findViewById(R.id.bt_mypage);
+
 
 
         //Fragment_kinglist kingFragment = (Fragment_kinglist) getSupportFragmentManager().findFragmentById(R.id.kinglist_fragment);
@@ -79,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
                 displayView(4);
             }
         });
+
+
+
 
     }
 
