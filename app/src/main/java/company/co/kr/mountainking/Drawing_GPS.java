@@ -52,6 +52,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     public static boolean Continue=true;
    // public static int timer=0;
 
+    public static Dialog statDialog2;
 
     static final LatLng SUWON = new LatLng(37.280291, 127.007802);//수원 위치 는 기본적으로 띄어주기 위해서
 
@@ -83,8 +84,18 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     private int s_timer;//시작 시간
     private int f_timer;//끝나는 시간
     private Handler handler;
+    private Handler handler2;
     private  PolylineOptions polyop;
     private  TextView gpsname;
+
+    private boolean flag2=false;
+    private boolean flag3=false;
+    private boolean flag4=false;
+    private boolean flag5=false;
+
+
+
+
 
 
     @Override
@@ -151,6 +162,23 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                         double latitude1 = gps.getLatitude();
                         double longitude1 = gps.getLongitude();
 
+                        if(positpoint(latitude1,longitude1)==1){
+
+                        }
+                        else if(positpoint(latitude1,longitude1)==2){
+
+                        }
+                        else if(positpoint(latitude1,longitude1)==3){
+
+                        }
+                        else if(positpoint(latitude1,longitude1)==4){
+
+                        }
+                        else{
+
+                        }
+                        //함수를 만들어서 지나간지 안지나간지 판별 해야함! 반환값이 int 임 이거 가지고 판별하자!
+
                         latitude = String.valueOf(latitude1);
                         longitude = String.valueOf(longitude1);
                         //이쯤에서 longitude1 과 latitude1 을 함수로 넘겨서 1/2 1/4 1/6 지점을 판별해보자!!
@@ -158,11 +186,11 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                         f_lat = latitude1;
                         f_long = longitude1;
                         if(timer%60==0){
-                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1, longitude1), 12));
+                            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1, longitude1), 16));
                             googleMap.addPolyline(polyop
                                     .add(new LatLng(latitude1, longitude1))
                                     .width(5)
-                                    .color(Color.RED));
+                                    .color(Color.GREEN));
 
                         }
                     } else {
@@ -185,7 +213,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         polyop=new PolylineOptions();
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(SUWON));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(14));
 
         btn_str.setOnClickListener(new View.OnClickListener() {
 
@@ -213,12 +241,12 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     longitude = String.valueOf(longitude1);
 
                     googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Start")).showInfoWindow();
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),16));
 
                     googleMap.addPolyline(polyop
                             .add(new LatLng(latitude1,longitude1), new LatLng(latitude1,longitude1))
                             .width(5)
-                            .color(Color.RED));
+                            .color(Color.GREEN));
 
                 } else {
                     gps.showSettingsAlert();
@@ -249,13 +277,13 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     longitude = String.valueOf(longitude1);
 
                     googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Finish")).showInfoWindow();
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),12));
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),16));
 
 
                     googleMap.addPolyline(polyop
                             .add(new LatLng(latitude1,longitude1))
                             .width(5)
-                            .color(Color.RED));
+                            .color(Color.GREEN));
 
                 } else {
                     gps.showSettingsAlert();
@@ -265,13 +293,45 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_rst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             /*   googleMap.clear();
+                googleMap.clear();
                 polyop=new PolylineOptions();
 
                 hour=0;
                 minute=0;
-                second=0;*/
-                gps = new GpsInfo(Drawing_GPS.this);
+                second=0;
+
+                flag2=false;
+                flag3=false;
+                flag4=false;
+                flag5=false;
+
+/*
+
+                statDialog2 = new Dialog(Drawing_GPS.this);
+                statDialog2.setContentView(R.layout.average_dialog);
+
+                TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
+                TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
+                TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
+                time_dialog.setText("ss");
+                distance_dialog.setText("m");
+                velocity_dialog.setText("m/s");
+
+                statDialog2.show();
+*/
+
+
+                /*while(true){
+                if (System.currentTimeMillis() - sstime > 2000) {
+                    Log.d("asdf", "디스 전");
+
+                    statDialog2.dismiss();
+                    Log.d("asdf", "디스 후");
+                    break;
+                }
+                }*/
+
+               /* gps = new GpsInfo(Drawing_GPS.this);
                 // GPS 사용유무 가져오기
                 if (gps.isGetLocation()) {
 
@@ -288,7 +348,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                 } else {
                     gps.showSettingsAlert();
-                }
+                }*/
 
 
             }
@@ -342,7 +402,63 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    public int gpscal(double longitude ,double latitude,int pos) {
+
+    public int positpoint(double latitude,double longitude){
+
+        if(37.3198922579<latitude&&latitude<37.3198922580&&127.04203124267<longitude&&longitude<127.04203124268){
+            if(flag2==true){
+                return 0;
+            }
+
+
+
+
+            flag2=true;
+            return 1;
+            //천년 약수터
+        }
+        else if(37.32233092283<latitude&&latitude<37.32233092284&&127.03966952133<longitude&&longitude<127.03966952134){
+            if(flag3==true){
+                return 0;
+            }
+
+
+            flag3=true;
+            return 2;
+            //4
+        }
+        else if(37.32721903312<latitude&&latitude<37.32721903313&&127.03709969785<longitude&&longitude<127.03709969786){
+            if(flag4==true){
+                return 0;
+            }
+
+
+            flag4=true;
+            return 3;
+            //5
+        }
+        else if(37.32816133934<latitude&&latitude<37.32816133935&&127.03809482865<longitude&&longitude<127.03809482866){
+            if(flag5==true){
+                return 0;
+            }
+
+
+            flag5=true;
+            return 4;
+            //6 아마도 정상?
+        }
+           /*  3. 아마 천년 약수터?
+                lat: 37.3198922579834
+long:127.04203124267818
+                [정승범] [오후 7:51] 4. lat: 37.32233092283948
+long:127.03966952133092
+                [정승범] [오후 7:52] 5. lat:37.32721903312214
+long:127.03709969785915
+                [정승범] [오후 7:53] 6. lat:37.32816133934622
+long:127.03809482865788
+                [정승범] [오후 7:53] 7.lat:37.328481329220725
+long:127.03826266961562
+*/
 
         return 0;
     }
