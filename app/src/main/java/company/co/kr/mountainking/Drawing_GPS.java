@@ -293,7 +293,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_rst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                googleMap.clear();
+            /*    googleMap.clear();
                 polyop=new PolylineOptions();
 
                 hour=0;
@@ -303,7 +303,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                 flag2=false;
                 flag3=false;
                 flag4=false;
-                flag5=false;
+                flag5=false;*/
 
 /*
 
@@ -331,7 +331,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                 }
                 }*/
 
-               /* gps = new GpsInfo(Drawing_GPS.this);
+                gps = new GpsInfo(Drawing_GPS.this);
                 // GPS 사용유무 가져오기
                 if (gps.isGetLocation()) {
 
@@ -348,7 +348,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
                 } else {
                     gps.showSettingsAlert();
-                }*/
+                }
 
 
             }
