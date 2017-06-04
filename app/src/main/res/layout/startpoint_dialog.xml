@@ -12,6 +12,7 @@
 
         <ImageButton
             android:layout_width="match_parent"
+            android:id="@+id/startpointbt"
             android:background="@color/transparent"
             android:layout_height="match_parent"
             android:layout_weight="1"
