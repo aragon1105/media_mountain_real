@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:background="@drawable/green_background"
-        android:layout_weight="3">
+        android:layout_weight="4">
 
         <TextView
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:src="@drawable/yuri"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:id="@+id/myimage"/>
 
         <TextView
@@ -33,7 +33,7 @@
             android:gravity="center"
             android:textColor="#000000"
             android:text="Yuri Lee"
-            android:textSize="20dp"/>
+            android:textSize="15dp"/>
 
     </LinearLayout>
 
@@ -41,16 +41,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_weight="4"
         android:background="#ffffff"
-        android:layout_weight="3"></LinearLayout>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/mymt_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        >
 
         <com.github.mikephil.charting.charts.LineChart
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/chart"></com.github.mikephil.charting.charts.LineChart>

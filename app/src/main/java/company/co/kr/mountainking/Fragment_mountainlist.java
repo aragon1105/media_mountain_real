@@ -33,7 +33,6 @@ public class Fragment_mountainlist extends Fragment{
     private MountainAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<MyData> myDataset;
-    MainActivity intent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,12 +53,7 @@ public class Fragment_mountainlist extends Fragment{
         mAdapter = new MountainAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setItemClick(new MountainAdapter.ItemClick(){
-            @Override
-            public void onClick(View view, int position){
-                intent.displayView(3);
-            }
-        });
+
 
 
         return view;
@@ -74,10 +68,10 @@ public class Fragment_mountainlist extends Fragment{
     private void initDataset(){
 
         myDataset = new ArrayList<>();
-        myDataset.add(new MyData("#광교산",R.drawable.kwangkyo));
-        myDataset.add(new MyData("#지리산",R.mipmap.jiri));
-        myDataset.add(new MyData("#설악산",R.mipmap.hanra));
-        myDataset.add(new MyData("#한라산",R.mipmap.seolak));
+        myDataset.add(new MyData("#광교산","♡ 352",R.drawable.kwangkyo));
+        myDataset.add(new MyData("#지리산","♡ 5230",R.mipmap.jiri));
+        myDataset.add(new MyData("#설악산","♡ 4980",R.mipmap.hanra));
+        myDataset.add(new MyData("#한라산","♡ 8283",R.mipmap.seolak));
     }
 
 
@@ -87,7 +81,6 @@ public class Fragment_mountainlist extends Fragment{
 
 class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
     private ArrayList<MyData> mDataset;
-    private ItemClick itemClick;
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public MountainAdapter(ArrayList<MyData> myDataset) {
@@ -115,6 +108,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         // - replace the contents of the view with that element
         holder.mTextView.setText(mDataset.get(position).text);
         holder.mImageView.setImageResource(mDataset.get(position).img);
+        holder.like.setText(mDataset.get(position).like);
 
         // 클릭된 산의 index를 보냄
         holder.view.setOnClickListener(new View.OnClickListener() {
@@ -147,37 +141,28 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         // each data item is just a string in this case
         public ImageView mImageView;
         public TextView mTextView;
+        public TextView like;
         public View view;
 
         public ViewHolder(View view) {
             super(view);
             mImageView = (ImageView)view.findViewById(R.id.image);
             mTextView = (TextView)view.findViewById(R.id.textview);
+            like = (TextView)view.findViewById(R.id.textLike);
             this.view = view;
         }
     }
-
-    //아이템 클릭시 실행 함수
-    public interface ItemClick{
-        public void onClick(View view, int position);
-
-    }
-
-    //아이템 클릭시 실행 함수를 등록하는 함수
-    public void setItemClick(ItemClick itemClick){
-        this.itemClick = itemClick;
-    }
-
-
 
 
 }
 
 class MyData{
     public String text;
+    public String like;
     public int img;
-    public MyData(String text, int img){
+    public MyData(String text, String like, int img){
         this.text = text;
+        this.like = like;
         this.img = img;
     }
 }
