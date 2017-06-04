@@ -30,8 +30,10 @@ public class Fragment_kinglist extends ListFragment {
         adapter = new kinglistAdapter();
         setListAdapter(adapter);
 
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1500.2m", "지리산", "정승범", 5, "김준영", 250, "경남 지리시");
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1400.5m", "설악산", "박재현", 3, "김준영", 277, "강원 설악시");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1500.2m", "지리산", "정승범", 5, "경남 지리시");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1400.5m", "설악산", "박재현", 3, "강원 설악시");
+
+
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -41,13 +43,12 @@ public class Fragment_kinglist extends ListFragment {
         ListViewItem item = (ListViewItem) l.getItemAtPosition(position);
 
         String name = item.getMt_name();
-        String speedking = item.getSpeedking();
 
         super.onListItemClick(l, v, position, id);
     }
 
     public void addItem(Drawable icon, String height, String name, String jungbok, Integer count, String speedking, Integer record, String location) {
-        adapter.addItem(icon, height, name, jungbok, count, speedking, record, location);
+        adapter.addItem(icon, height, name, jungbok, count, location);
     }
 }
 
@@ -83,8 +84,8 @@ class kinglistAdapter extends BaseAdapter {
         TextView mt_name = (TextView) convertView.findViewById(R.id.mountain_name);
         TextView jungbok = (TextView) convertView.findViewById(R.id.jungbok_king);
         TextView jungbok_count = (TextView) convertView.findViewById(R.id.jungbok_count);
-        TextView speedking = (TextView) convertView.findViewById(R.id.speed_king);
-        TextView speed_record = (TextView) convertView.findViewById(R.id.speed_record);
+        //TextView speedking = (TextView) convertView.findViewById(R.id.speed_king);
+        //TextView speed_record = (TextView) convertView.findViewById(R.id.speed_record);
         TextView mt_location = (TextView) convertView.findViewById(R.id.mountain_location);
 
 
@@ -97,8 +98,8 @@ class kinglistAdapter extends BaseAdapter {
         mt_name.setText(Item.getMt_name());
         jungbok.setText(Item.getJungbok());
         jungbok_count.setText(Item.getJungbok_count().toString());
-        speedking.setText(Item.getSpeedking());
-        speed_record.setText(Item.getSpeed_record().toString());
+        //speedking.setText(Item.getSpeedking());
+        //speed_record.setText(Item.getSpeed_record().toString());
         mt_location.setText(Item.getMt_location());
 
         return convertView;
@@ -119,7 +120,7 @@ class kinglistAdapter extends BaseAdapter {
 
 
     // 아이템 데이터 추가를 위한 함수.
-    public void addItem(Drawable icon, String height, String name, String jungbok, Integer count, String speedking, Integer record, String location){
+    public void addItem(Drawable icon, String height, String name, String jungbok, Integer count, String location){
         ListViewItem item = new ListViewItem();
 
         item.setIcon(icon);
@@ -127,8 +128,8 @@ class kinglistAdapter extends BaseAdapter {
         item.setMt_name(name);
         item.setJungbok(jungbok);
         item.setJungbok_count(count);
-        item.setSpeedking(speedking);
-        item.setSpeed_record(record);
+        //item.setSpeedking(speedking);
+        //item.setSpeed_record(record);
         item.setMt_location(location);
 
         listViewItemList.add(item);
@@ -144,8 +145,8 @@ class ListViewItem {
     private String mt_height;
     private String jungbok;
     private Integer jungbok_count;
-    private String speedking;
-    private Integer speed_record;
+    //private String speedking;
+    //private Integer speed_record;
     private String mt_location;
 
 
@@ -154,8 +155,8 @@ class ListViewItem {
     public void setMt_height(String height) { mt_height = height;}
     public void setJungbok(String person) { jungbok = person;}
     public void setJungbok_count(Integer count){ jungbok_count = count;}
-    public void setSpeedking(String person) { speedking = person;}
-    public void setSpeed_record(Integer record) { speed_record = record;}
+    //public void setSpeedking(String person) { speedking = person;}
+    //public void setSpeed_record(Integer record) { speed_record = record;}
     public void setMt_location(String location) { mt_location = location;}
 
 
@@ -166,8 +167,8 @@ class ListViewItem {
     public String getMt_height() { return this.mt_height;}
     public String getJungbok() {return this.jungbok;}
     public Integer getJungbok_count() {return  this.jungbok_count;}
-    public String getSpeedking() { return this.speedking;}
-    public Integer getSpeed_record() { return  this.speed_record;}
+    //public String getSpeedking() { return this.speedking;}
+    //public Integer getSpeed_record() { return  this.speed_record;}
     public String getMt_location() { return  this.mt_location;}
 
 }

@@ -68,10 +68,10 @@ public class Fragment_mountainlist extends Fragment{
     private void initDataset(){
 
         myDataset = new ArrayList<>();
-        myDataset.add(new MyData("#광교산","♡ 352",R.drawable.kwangkyo));
-        myDataset.add(new MyData("#지리산","♡ 5230",R.mipmap.jiri));
-        myDataset.add(new MyData("#설악산","♡ 4980",R.mipmap.hanra));
-        myDataset.add(new MyData("#한라산","♡ 8283",R.mipmap.seolak));
+        myDataset.add(new MyData("#광교산","♡ 352","2580m",R.drawable.kwangkyo));
+        myDataset.add(new MyData("#지리산","♡ 5230","2777m",R.mipmap.jiri));
+        myDataset.add(new MyData("#설악산","♡ 4980","2325m",R.mipmap.hanra));
+        myDataset.add(new MyData("#한라산","♡ 8283","3333m",R.mipmap.seolak));
     }
 
 
@@ -109,6 +109,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         holder.mTextView.setText(mDataset.get(position).text);
         holder.mImageView.setImageResource(mDataset.get(position).img);
         holder.like.setText(mDataset.get(position).like);
+        holder.heightTextView.setText(mDataset.get(position).height);
 
         // 클릭된 산의 index를 보냄
         holder.view.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +142,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         // each data item is just a string in this case
         public ImageView mImageView;
         public TextView mTextView;
+        public TextView heightTextView;
         public TextView like;
         public View view;
 
@@ -148,6 +150,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
             super(view);
             mImageView = (ImageView)view.findViewById(R.id.image);
             mTextView = (TextView)view.findViewById(R.id.textview);
+            heightTextView = (TextView)view.findViewById(R.id.mt_height);
             like = (TextView)view.findViewById(R.id.textLike);
             this.view = view;
         }
@@ -158,11 +161,13 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
 
 class MyData{
     public String text;
+    public String height;
     public String like;
     public int img;
-    public MyData(String text, String like, int img){
+    public MyData(String text, String like, String height, int img){
         this.text = text;
         this.like = like;
+        this.height = height;
         this.img = img;
     }
 }
