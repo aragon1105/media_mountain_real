@@ -53,9 +53,11 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
    // public static int timer=0;
 
     public static Dialog statDialog2;
+    //lat : 37.312690191690834  long: 127.03076560224923
 
-    static final LatLng SUWON = new LatLng(37.280291, 127.007802);//수원 위치 는 기본적으로 띄어주기 위해서
+    static final LatLng GGMT = new LatLng(37.312690191690834, 127.03076560224923);//수원 위치 는 기본적으로 띄어주기 위해서
 
+   // static final LatLng GWang=new LatLng()
     Button btn_str;
     Button btn_fini;
     Button btn_rst;
@@ -88,14 +90,13 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     private  PolylineOptions polyop;
     private  TextView gpsname;
 
+    private boolean flag1=false;
     private boolean flag2=false;
     private boolean flag3=false;
     private boolean flag4=false;
     private boolean flag5=false;
 
-
-
-
+    MarkerOptions m1,m2,m3,m4,m5,m11,m22,m33,m44,m55;
 
 
     @Override
@@ -162,25 +163,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                         double latitude1 = gps.getLatitude();
                         double longitude1 = gps.getLongitude();
 
-                        if(positpoint(latitude1,longitude1)==1){
-
-                        }
-                        else if(positpoint(latitude1,longitude1)==2){
-
-                        }
-                        else if(positpoint(latitude1,longitude1)==3){
-
-                        }
-                        else if(positpoint(latitude1,longitude1)==4){
-
-                        }
-                        else if(positpoint(latitude1,longitude1)==5){
-
-                        }//ff
-                        else{
-
-                        }
-                        //함수를 만들어서 지나간지 안지나간지 판별 해야함! 반환값이 int 임 이거 가지고 판별하자!
+                        positpoint(latitude1,longitude1);
 
                         latitude = String.valueOf(latitude1);
                         longitude = String.valueOf(longitude1);
@@ -210,13 +193,41 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap map) {
 
+
+        gpsname.setText(mtname+" 정복중");
         googleMap = map;
         googleMap.clear();//리셋 에서 넣어둘려고 잡아둔것임!
 
         polyop=new PolylineOptions();
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(SUWON));
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(GGMT));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(14));
+        m1=new MarkerOptions().position(new LatLng(37.312690191690834,127.03076560224923)).alpha(0.4f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+        m2=new MarkerOptions().position(new LatLng(37.3198922579834,127.04203124267818)).alpha(0.4f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+        m3=new MarkerOptions().position(new LatLng(37.32233092283948,127.03966952133092)).alpha(0.4f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+        m4=new MarkerOptions().position(new LatLng(37.32721903312214,127.03709969785915)).alpha(0.4f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+        m5=new MarkerOptions().position(new LatLng(37.32816133934622,127.03809482865788)).alpha(0.4f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+
+        googleMap.addMarker(m1);
+        googleMap.addMarker(m2);
+        googleMap.addMarker(m3);
+        googleMap.addMarker(m4);
+        googleMap.addMarker(m5);
+
+        /*
+           1. lat : 37.312690191690834  long: 127.03076560224923 //시작지점
+           3. 아마 천년 약수터?
+                lat: 37.3198922579834
+long:127.04203124267818
+                [정승범] [오후 7:51] 4. lat: 37.32233092283948
+long:127.03966952133092
+                [정승범] [오후 7:52] 5. lat:37.32721903312214
+long:127.03709969785915
+                [정승범] [오후 7:53] 6. lat:37.32816133934622
+long:127.03809482865788//정상지점
+*/
+        //마커 찍어야할곳 5개
 
         btn_str.setOnClickListener(new View.OnClickListener() {
 
@@ -243,7 +254,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
-                    googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Start")).showInfoWindow();
+                    //googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Start")).showInfoWindow();
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),16));
 
                     googleMap.addPolyline(polyop
@@ -279,7 +290,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
                     latitude = String.valueOf(latitude1);
                     longitude = String.valueOf(longitude1);
 
-                    googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Finish")).showInfoWindow();
+                    //googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude1,longitude1)).title("Finish")).showInfoWindow();
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude1,longitude1),16));
 
 
@@ -296,62 +307,21 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
         btn_rst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            /*    googleMap.clear();
+                googleMap.clear();
                 polyop=new PolylineOptions();
 
                 hour=0;
                 minute=0;
                 second=0;
 
+                flag1=false;
                 flag2=false;
                 flag3=false;
                 flag4=false;
-                flag5=false;*/
-
-/*
-
-                statDialog2 = new Dialog(Drawing_GPS.this);
-                statDialog2.setContentView(R.layout.average_dialog);
-
-                TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
-                TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
-                TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
-                time_dialog.setText("ss");
-                distance_dialog.setText("m");
-                velocity_dialog.setText("m/s");
-
-                statDialog2.show();
-*/
+                flag5=false;
 
 
-                /*while(true){
-                if (System.currentTimeMillis() - sstime > 2000) {
-                    Log.d("asdf", "디스 전");
 
-                    statDialog2.dismiss();
-                    Log.d("asdf", "디스 후");
-                    break;
-                }
-                }*/
-
-                gps = new GpsInfo(Drawing_GPS.this);
-                // GPS 사용유무 가져오기
-                if (gps.isGetLocation()) {
-
-                    double latitude1 = gps.getLatitude();
-                    double longitude1 = gps.getLongitude();
-
-                    f_lat=latitude1;//끝지점 위치 저장
-                    f_long=longitude1;//끝지점 위치 저장
-
-                    latitude = String.valueOf(latitude1);
-                    longitude = String.valueOf(longitude1);
-
-                    Toast.makeText(getApplicationContext(),"lat: "+latitude1+"\nlong: "+longitude1,Toast.LENGTH_SHORT).show();
-
-                } else {
-                    gps.showSettingsAlert();
-                }
 
 
             }
@@ -406,64 +376,8 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     }
 
 
-    public int positpoint(double latitude,double longitude){
-
-        if(37.312690191690<latitude&&latitude<37.312690191691&&127.03076560224<longitude&&longitude<127.03076560225){
-            if(flag2==true){
-                return 0;
-            }
-
-
-
-
-            flag2=true;
-            return 1;
-            //시작점
-        }
-
-        if(37.3198922579<latitude&&latitude<37.3198922580&&127.04203124267<longitude&&longitude<127.04203124268){
-            if(flag2==true){
-                return 0;
-            }
-
-
-
-
-            flag2=true;
-            return 2;
-            //천년 약수터
-        }
-        else if(37.32233092283<latitude&&latitude<37.32233092284&&127.03966952133<longitude&&longitude<127.03966952134){
-            if(flag3==true){
-                return 0;
-            }
-
-
-            flag3=true;
-            return 3;
-            //4
-        }
-        else if(37.32721903312<latitude&&latitude<37.32721903313&&127.03709969785<longitude&&longitude<127.03709969786){
-            if(flag4==true){
-                return 0;
-            }
-
-
-            flag4=true;
-            return 4;
-            //5
-        }
-        else if(37.32816133934<latitude&&latitude<37.32816133935&&127.03809482865<longitude&&longitude<127.03809482866){
-            if(flag5==true){
-                return 0;
-            }
-
-
-            flag5=true;
-            return 5;
-            //6 아마도 정상?
-        }
-           /*
+    public void positpoint(double latitude3,double longitude3){
+  /*
            1. lat : 37.312690191690834  long: 127.03076560224923
            3. 아마 천년 약수터?
                 lat: 37.3198922579834
@@ -474,11 +388,178 @@ long:127.03966952133092
 long:127.03709969785915
                 [정승범] [오후 7:53] 6. lat:37.32816133934622
 long:127.03809482865788
-                [정승범] [오후 7:53] 7.lat:37.328481329220725
-long:127.03826266961562
 */
+        if(37.31269019169083<latitude3&&latitude3<37.31269019169084&&127.0307656022492<longitude3&&longitude3<127.0307656022493) {
+            if (flag1 == true) {
 
-        return 0;
+                return ;
+            }
+            m11=new MarkerOptions().position(new LatLng(37.312690191690834,127.03076560224923)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+            googleMap.addMarker(m11);
+
+            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
+            statDialog2.setContentView(R.layout.average_dialog);
+
+            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
+            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
+            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
+            time_dialog.setText("1111");
+            distance_dialog.setText("1111");
+            velocity_dialog.setText("1111");
+
+            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
+            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
+            icon_dialog.setImageResource(R.drawable.mountain_cc);
+
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    statDialog2.dismiss();
+                }
+            });
+
+            statDialog2.show();
+            flag1=true;
+            return ;
+        }
+        else if(37.319892257983<latitude3&&latitude3<37.319892257984&&127.0420312426781<longitude3&&longitude3<127.0420312426782) {
+            if (flag2 == true) {
+                return ;
+            }
+
+            m22=new MarkerOptions().position(new LatLng(37.3198922579834,127.04203124267818)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+            googleMap.addMarker(m22);
+
+            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
+            statDialog2.setContentView(R.layout.average_dialog);
+
+            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
+            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
+            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
+            time_dialog.setText("2222");
+            distance_dialog.setText("2222");
+            velocity_dialog.setText("2222");
+
+            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
+            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
+            icon_dialog.setImageResource(R.drawable.mountain_cc);
+
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    statDialog2.dismiss();
+                }
+            });
+
+            statDialog2.show();
+            flag2=true;
+            return ;
+        }
+        else if(37.3223309228394<latitude3&&latitude3<37.3223309228395&&127.0396695213309<longitude3&&longitude3<127.0396695213310) {
+            if (flag3 == true) {
+                return ;
+            }
+
+
+
+            m33=new MarkerOptions().position(new LatLng(37.32233092283948,127.03966952133092)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+            googleMap.addMarker(m33);
+
+            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
+            statDialog2.setContentView(R.layout.average_dialog);
+
+            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
+            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
+            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
+            time_dialog.setText("3333");
+            distance_dialog.setText("3333");
+            velocity_dialog.setText("3333");
+
+            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
+            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
+            icon_dialog.setImageResource(R.drawable.mountain_cc);
+
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    statDialog2.dismiss();
+                }
+            });
+
+            statDialog2.show();
+            flag3=true;
+            return ;
+        }
+        else if(37.3272190331221<latitude3&&latitude3<37.3272190331222&&127.0370996978591<longitude3&&longitude3<127.0370996978592) {
+            if (flag4 == true) {
+                return ;
+            }
+
+            m44=new MarkerOptions().position(new LatLng(37.32721903312214,127.03709969785915)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+            googleMap.addMarker(m44);
+
+            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
+            statDialog2.setContentView(R.layout.average_dialog);
+
+            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
+            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
+            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
+            time_dialog.setText("4444");
+            distance_dialog.setText("4444");
+            velocity_dialog.setText("4444");
+
+            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
+            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
+            icon_dialog.setImageResource(R.drawable.mountain_cc);
+
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    statDialog2.dismiss();
+                }
+            });
+
+            statDialog2.show();
+            flag4=true;
+            return ;
+        }
+        else if(37.3281613393462<latitude3&&latitude3<37.3281613393463&&127.0380948286578<longitude3&&longitude3<127.0380948286579) {
+            if (flag5 == true) {
+                return ;
+            }
+
+            m55=new MarkerOptions().position(new LatLng(37.32816133934622,127.03809482865788)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
+            googleMap.addMarker(m55);
+
+            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
+            statDialog2.setContentView(R.layout.average_dialog);
+
+            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
+            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
+            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
+            time_dialog.setText("555");
+            distance_dialog.setText("555");
+            velocity_dialog.setText("555");
+
+            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
+            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
+            icon_dialog.setImageResource(R.drawable.mountain_cc);
+
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    statDialog2.dismiss();
+                }
+            });
+
+            statDialog2.show();
+            flag5=true;
+            return ;
+        }
+
+        return ;
+
     }
 
-}
+    }
+
