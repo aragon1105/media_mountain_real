@@ -56,7 +56,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     //lat : 37.312690191690834  long: 127.03076560224923
 
     static final LatLng GGMT = new LatLng(37.312690191690834, 127.03076560224923);//수원 위치 는 기본적으로 띄어주기 위해서
-
+    static Boolean aflag=false;//이걸로 다 플래그 걸어서 나머지 페이지에서 true일때로 사용하면 됨!!
    // static final LatLng GWang=new LatLng()
     Button btn_str;
     Button btn_fini;
@@ -235,6 +235,7 @@ long:127.03809482865788//정상지점
             public void onClick(View view) { gps = new GpsInfo(Drawing_GPS.this);
 
                 Drawing_GPS.Continue=true;
+                aflag=true;
 
                 Intent intent = new Intent(Drawing_GPS.this, GPSService.class);
                 Messenger messenger=new Messenger(handler);
@@ -319,10 +320,6 @@ long:127.03809482865788//정상지점
                 flag3=false;
                 flag4=false;
                 flag5=false;
-
-
-
-
 
             }
         });
