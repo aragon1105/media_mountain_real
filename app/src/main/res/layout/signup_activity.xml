@@ -5,30 +5,47 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:paddingTop="20dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4"
+
+        android:layout_weight="2"
         android:background="#64CD3C">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:layout_weight="1"
+            android:src="@drawable/mtkinglogo_128"/>
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/signup_title"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="5dp"
-            android:text="Sign up now!"
+            android:text="MOUNTAIN KING"
             android:gravity="center"
+            android:layout_weight="2"
             android:layout_gravity="center_vertical"
-            android:textSize="45dp"
+            android:textSize="25dp"
             android:textColor="#ffff"
-            android:textStyle="bold" />
+            android:textStyle="normal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:textColor="#ffffff"
+            android:paddingBottom="10dp"
+            android:textSize="15dp"
+            android:text="Sign up on Mountain King"/>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="2.5"
         android:background="#64cd3c">
 
 
@@ -36,90 +53,129 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2">
-
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:layout_weight="3">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:background="@drawable/kakao_button_style"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp">
+
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:srcCompat="@drawable/kakao_symbol"
-                    android:id="@+id/imageView"
-                    android:layout_weight="1" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:src="@drawable/mountain_cc"/>
 
-                <Button
-                    android:text="      Login with KakaoTalk"
-                    android:background="#00ffffff"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#8b5827"
-                    android:id="@+id/bt_kakaolinking"
-                    android:layout_weight="1" />
+                <EditText
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/signup_id_et"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:layout_height="match_parent"
+                    android:hint="UserID"
+                    android:inputType="textPersonName"
+                    android:textColor="#ffffff"
+                    android:textCursorDrawable="@null"/>
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/signup_id_et"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/edit_text_style"
-                android:ems="15"
-                android:hint="  아이디를 입력하세요"
-                android:inputType="textPersonName"
-                android:textColor="#000000"
-                android:textColorHint="#969696" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1">
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#000000"
-                android:inputType="textPersonName"
-                android:hint="  이름을 입력하세요"
-                android:ems="15"
-                android:background="@drawable/edit_text_style"
-                android:textColorHint="#969696"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/signup_name_et"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:src="@drawable/business_person"/>
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#000000"
-                android:hint="  비밀번호를 입력하세요"
-                android:ems="15"
-                android:background="@drawable/edit_text_style"
-                android:textColorHint="#969696"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/signup_pw_et" />
+                <EditText
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:inputType="textPersonName"
+                    android:hint="UserName"
+                    android:id="@+id/signup_name_et"
+                    android:textCursorDrawable="@null"/>
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberPassword"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#000000"
-                android:hint="  비밀번호를 다시 입력하세요."
-                android:ems="15"
-                android:background="@drawable/edit_text_style"
-                android:textColorHint="#969696"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/signup_pw2_et" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:src="@drawable/locked"/>
+
+                <EditText
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:hint="Password"
+                    android:id="@+id/signup_pw_et"
+                    android:textCursorDrawable="@null"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:src="@drawable/locked"/>
+
+                <EditText
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberPassword"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:hint="Retype Password"
+                    android:id="@+id/signup_pw2_et"
+                    android:textCursorDrawable="@null"/>
+            </LinearLayout>
+
+
+
+
+
+
+
+
 
         </LinearLayout>
     </LinearLayout>
@@ -128,7 +184,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="4"
+        android:layout_weight="3"
+        android:gravity="center"
         android:background="#64cd3c">
 
         <Button

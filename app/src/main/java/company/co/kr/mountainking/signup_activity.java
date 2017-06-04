@@ -2,6 +2,7 @@ package company.co.kr.mountainking;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -43,16 +44,14 @@ public class signup_activity extends AppCompatActivity implements View.OnClickLi
         pDialog.setCancelable(false);
 
         Button create_account = (Button) findViewById(R.id.bt_createaccount);
-        Button kakao_lingking = (Button) findViewById(R.id.bt_kakaolinking);
 
         id_et = (EditText) findViewById(R.id.signup_id_et);
         name_et = (EditText) findViewById(R.id.signup_name_et);
         password_et = (EditText) findViewById(R.id.signup_pw_et);
         password_et2 = (EditText) findViewById(R.id.signup_pw2_et);
 
+
         TextView title = (TextView) findViewById(R.id.signup_title);
-        Typeface tangak = Typeface.createFromAsset(getAssets(), "tangak.otf");
-        title.setTypeface(tangak);
         create_account.setOnClickListener(this);
 
     }

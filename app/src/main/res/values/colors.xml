@@ -2,9 +2,10 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ffffff</color>
     <color name="kinglistGreen">#9964cd3c</color>
     <color name="transparent">#00ffffff</color>
     <color name="lightsilver">#c0c0c0</color>
     <color name="lightyellow">#ffffe0</color>
+    <color name="white">#ffffff</color>
 </resources>
