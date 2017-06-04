@@ -74,22 +74,25 @@ public class Fragment_mypage extends Fragment {
 
         LineChart lineChart = (LineChart) view.findViewById(R.id.chart);
         ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(4f, 0));
-        entries.add(new Entry(8f, 1));
+        entries.add(new Entry(12f, 0));//시간으로 할것!
+        entries.add(new Entry(0f, 1));
         entries.add(new Entry(6f, 2));
-        entries.add(new Entry(2f, 3));
+        entries.add(new Entry(10f, 3));
         entries.add(new Entry(18f, 4));
-        entries.add(new Entry(9f, 5));
+        entries.add(new Entry(0f, 5));
+        entries.add(new Entry(9f, 6));
 
         LineDataSet dataset = new LineDataSet(entries, "# of Calls");
 
         ArrayList<String> labels = new ArrayList<String>();
-        labels.add("January");
-        labels.add("February");
-        labels.add("March");
-        labels.add("April");
-        labels.add("May");
-        labels.add("June");
+        labels.add("1/1");
+        labels.add("1/2");
+        labels.add("1/3");
+        labels.add("1/4");
+        labels.add("1/5");
+        labels.add("1/6");
+        labels.add("1/7");
+      //  labels.add("6/25");
 
         LineData data = new LineData(labels, dataset);
         lineChart.setData(data);
@@ -114,10 +117,21 @@ public class Fragment_mypage extends Fragment {
     private void initDataset(){
 
         mymtDataset = new ArrayList<>();
-        mymtDataset.add(new MymtData("광교산","4회", R.drawable.mountains));
-        mymtDataset.add(new MymtData("지리산","8회", R.drawable.mountains));
-        mymtDataset.add(new MymtData("설악산","2회", R.drawable.mountains));
-        mymtDataset.add(new MymtData("한라산","7회", R.drawable.mountains));
+
+
+
+        if(Drawing_GPS.aflag==true) {
+            mymtDataset.add(new MymtData("광교산", "5회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("지리산", "8회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("설악산", "2회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("한라산", "7회", R.drawable.mountains));
+        }
+        else{
+            mymtDataset.add(new MymtData("광교산","4회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("지리산","8회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("설악산","2회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("한라산","7회", R.drawable.mountains));
+        }
     }
 
 

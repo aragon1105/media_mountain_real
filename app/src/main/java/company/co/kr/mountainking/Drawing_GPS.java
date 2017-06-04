@@ -56,7 +56,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     //lat : 37.312690191690834  long: 127.03076560224923
 
     static final LatLng GGMT = new LatLng(37.312690191690834, 127.03076560224923);//수원 위치 는 기본적으로 띄어주기 위해서
-
+    static Boolean aflag=false;//이걸로 다 플래그 걸어서 나머지 페이지에서 true일때로 사용하면 됨!!
    // static final LatLng GWang=new LatLng()
     Button btn_str;
     Button btn_fini;
@@ -235,6 +235,7 @@ long:127.03809482865788//정상지점
             public void onClick(View view) { gps = new GpsInfo(Drawing_GPS.this);
 
                 Drawing_GPS.Continue=true;
+                aflag=true;
 
                 Intent intent = new Intent(Drawing_GPS.this, GPSService.class);
                 Messenger messenger=new Messenger(handler);
@@ -320,10 +321,6 @@ long:127.03809482865788//정상지점
                 flag4=false;
                 flag5=false;
 
-
-
-
-
             }
         });
         btn_sts.setOnClickListener(new View.OnClickListener() {
@@ -397,28 +394,19 @@ long:127.03809482865788
             m11=new MarkerOptions().position(new LatLng(37.312690191690834,127.03076560224923)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
             googleMap.addMarker(m11);
 
-            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
-            statDialog2.setContentView(R.layout.average_dialog);
+            final Dialog startdialog = new Dialog(Drawing_GPS.this);
+            startdialog.setContentView(R.layout.startpoint_dialog);
 
-            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
-            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
-            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
-            time_dialog.setText("1111");
-            distance_dialog.setText("1111");
-            velocity_dialog.setText("1111");
-
-            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
-            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
-            icon_dialog.setImageResource(R.drawable.mountain_cc);
+            Button close = (Button) startdialog.findViewById(R.id.startpointbt);
 
             close.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    statDialog2.dismiss();
+                    startdialog.dismiss();
                 }
             });
 
-            statDialog2.show();
+            startdialog.show();
             flag1=true;
             return ;
         }
@@ -430,28 +418,20 @@ long:127.03809482865788
             m22=new MarkerOptions().position(new LatLng(37.3198922579834,127.04203124267818)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
             googleMap.addMarker(m22);
 
-            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
-            statDialog2.setContentView(R.layout.average_dialog);
+            final Dialog savepoint1 = new Dialog(Drawing_GPS.this);
+            savepoint1.setContentView(R.layout.savepoint_dialog);
 
-            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
-            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
-            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
-            time_dialog.setText("2222");
-            distance_dialog.setText("2222");
-            velocity_dialog.setText("2222");
+            Button close4 = (Button) savepoint1.findViewById(R.id.savepointbt);
 
-            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
-            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
-            icon_dialog.setImageResource(R.drawable.mountain_cc);
-
-            close.setOnClickListener(new View.OnClickListener() {
+            close4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    statDialog2.dismiss();
+                    savepoint1.dismiss();
                 }
             });
 
-            statDialog2.show();
+            savepoint1.show();
+
             flag2=true;
             return ;
         }
@@ -460,33 +440,24 @@ long:127.03809482865788
                 return ;
             }
 
-
-
             m33=new MarkerOptions().position(new LatLng(37.32233092283948,127.03966952133092)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
             googleMap.addMarker(m33);
 
-            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
-            statDialog2.setContentView(R.layout.average_dialog);
 
-            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
-            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
-            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
-            time_dialog.setText("3333");
-            distance_dialog.setText("3333");
-            velocity_dialog.setText("3333");
+            final Dialog savepoint2 = new Dialog(Drawing_GPS.this);
+            savepoint2.setContentView(R.layout.savepoint_dialog);
 
-            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
-            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
-            icon_dialog.setImageResource(R.drawable.mountain_cc);
+            Button close3 = (Button) savepoint2.findViewById(R.id.savepointbt);
 
-            close.setOnClickListener(new View.OnClickListener() {
+            close3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    statDialog2.dismiss();
+                    savepoint2.dismiss();
                 }
             });
 
-            statDialog2.show();
+            savepoint2.show();
+
             flag3=true;
             return ;
         }
@@ -501,25 +472,21 @@ long:127.03809482865788
             final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
             statDialog2.setContentView(R.layout.average_dialog);
 
-            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
-            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
-            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
-            time_dialog.setText("4444");
-            distance_dialog.setText("4444");
-            velocity_dialog.setText("4444");
 
-            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
-            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
-            icon_dialog.setImageResource(R.drawable.mountain_cc);
+            final Dialog savepoint3 = new Dialog(Drawing_GPS.this);
+            savepoint3.setContentView(R.layout.savepoint_dialog);
 
-            close.setOnClickListener(new View.OnClickListener() {
+            Button close2 = (Button) savepoint3.findViewById(R.id.savepointbt);
+
+            close2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    statDialog2.dismiss();
+                    savepoint3.dismiss();
                 }
             });
 
-            statDialog2.show();
+            savepoint3.show();
+
             flag4=true;
             return ;
         }
@@ -531,28 +498,21 @@ long:127.03809482865788
             m55=new MarkerOptions().position(new LatLng(37.32816133934622,127.03809482865788)).alpha(1.0f).icon(BitmapDescriptorFactory.fromResource(R.drawable.flag2));
             googleMap.addMarker(m55);
 
-            final Dialog statDialog2 = new Dialog(Drawing_GPS.this);
-            statDialog2.setContentView(R.layout.average_dialog);
 
-            TextView time_dialog = (TextView) statDialog2.findViewById(R.id.time_dialog);
-            TextView distance_dialog = (TextView) statDialog2.findViewById(R.id.distance_dialog);
-            TextView velocity_dialog = (TextView) statDialog2.findViewById(R.id.velocity_dialog);
-            time_dialog.setText("555");
-            distance_dialog.setText("555");
-            velocity_dialog.setText("555");
+            final Dialog finishpoint = new Dialog(Drawing_GPS.this);
+            finishpoint.setContentView(R.layout.finishpoint_dialog);
 
-            Button close = (Button) statDialog2.findViewById(R.id.close_dialog);
-            ImageView icon_dialog = (ImageView) statDialog2.findViewById(R.id.icon_dialog);
-            icon_dialog.setImageResource(R.drawable.mountain_cc);
+            Button close1 = (Button) finishpoint.findViewById(R.id.finishpointbt);
 
-            close.setOnClickListener(new View.OnClickListener() {
+            close1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    statDialog2.dismiss();
+                    finishpoint.dismiss();
                 }
             });
 
-            statDialog2.show();
+            finishpoint.show();
+
             flag5=true;
             return ;
         }
