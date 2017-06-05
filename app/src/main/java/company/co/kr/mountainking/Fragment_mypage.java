@@ -74,26 +74,52 @@ public class Fragment_mypage extends Fragment {
 
         LineChart lineChart = (LineChart) view.findViewById(R.id.chart);
         ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(12f, 0));//시간으로 할것!
-        entries.add(new Entry(0f, 1));
-        entries.add(new Entry(6f, 2));
-        entries.add(new Entry(10f, 3));
-        entries.add(new Entry(18f, 4));
-        entries.add(new Entry(0f, 5));
-        entries.add(new Entry(9f, 6));
-        //entries.add(new Entry(9f, 6));
+        if(Drawing_GPS.aflag==true) {
+            entries.add(new Entry(123f, 0));//시간으로 할것!
+            entries.add(new Entry(0f, 1));
+            entries.add(new Entry(139f, 2));
+            entries.add(new Entry(110f, 3));
+            entries.add(new Entry(99f, 4));
+            entries.add(new Entry(0f, 5));
+            entries.add(new Entry(154, 6));
+            entries.add(new Entry(Drawing_GPS.amin, 7));
 
+        }
+        else{
+            entries.add(new Entry(123f, 0));//시간으로 할것!
+            entries.add(new Entry(0f, 1));
+            entries.add(new Entry(139f, 2));
+            entries.add(new Entry(110f, 3));
+            entries.add(new Entry(99f, 4));
+            entries.add(new Entry(0f, 5));
+            entries.add(new Entry(154, 6));
+//            entries.add(new Entry(Drawing_GPS.amin, 7));
+
+        }
         LineDataSet dataset = new LineDataSet(entries, "# of Calls");
 
         ArrayList<String> labels = new ArrayList<String>();
-        labels.add("5/29");
-        labels.add("5/30");
-        labels.add("6/1");
-        labels.add("6/2");
-        labels.add("6/3");
-        labels.add("6/4");
-        labels.add("6/5");
-      //  labels.add("6/9");
+       if(Drawing_GPS.aflag==true) {
+           labels.add("5/29");
+           labels.add("5/30");
+           labels.add("6/1");
+           labels.add("6/2");
+           labels.add("6/3");
+           labels.add("6/4");
+           labels.add("6/5");
+           labels.add("6/9");
+       }
+       else{
+           labels.add("5/29");
+           labels.add("5/30");
+           labels.add("6/1");
+           labels.add("6/2");
+           labels.add("6/3");
+           labels.add("6/4");
+           labels.add("6/5");
+//           labels.add("6/9");
+
+       }
 
         LineData data = new LineData(labels, dataset);
         lineChart.setData(data);

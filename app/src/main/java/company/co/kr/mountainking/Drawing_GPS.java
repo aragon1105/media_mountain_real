@@ -58,6 +58,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
 
     static final LatLng GGMT = new LatLng(37.312690191690834, 127.03076560224923);//수원 위치 는 기본적으로 띄어주기 위해서
     static Boolean aflag=false;//이걸로 다 플래그 걸어서 나머지 페이지에서 true일때로 사용하면 됨!!
+    static int amin=0;
    // static final LatLng GWang=new LatLng()
     Button btn_str;
     Button btn_fini;
@@ -76,6 +77,7 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     private String mtname;
 
     private Boolean flag=false;
+
 
     private int timer;
     private double dist;
@@ -276,6 +278,8 @@ long:127.03809482865788//정상지점
 
                 gpsname.setText(mtname+" 등산 끝!");
                 //flag=false;
+
+                amin=timer/60;
 
                 Drawing_GPS.Continue=false;
                 //여기서도 f_timer 시간을 넣어야함
