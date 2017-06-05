@@ -32,7 +32,7 @@ public class Fragment_kinglist extends ListFragment {
 
 
         if(Drawing_GPS.aflag==true) {
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.somin), "581m", "광교산", "변라영", 4, "경기 수원시");
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "581m", "광교산", "변혜영", 5, "경기 수원시");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1915.4m", "지리산", "차정환", 12, "경남 신청군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "632.2m", "관악산", "변혜영", 4, "서울 관악구");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1707.9m", "설악산", "안중희", 5, "강원 인제군");
@@ -50,7 +50,7 @@ public class Fragment_kinglist extends ListFragment {
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "763.5m", "내장산", "박철수", 7, "전북 정읍시");
         }
         else{
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "581m", "광교산", "변혜영", 3, "경기 수원시");
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "581m", "광교산", "변혜영", 4, "경기 수원시");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1915.4m", "지리산", "차정환", 12, "경남 신청군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "632.2m", "관악산", "변혜영", 4, "서울 관악구");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1707.9m", "설악산", "안중희", 5, "강원 인제군");
