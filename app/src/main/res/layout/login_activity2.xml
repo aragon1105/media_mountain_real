@@ -62,11 +62,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="15"
-                    android:src="@drawable/mountain_cc"/>
+                    android:src="@drawable/business_person"/>
 
                 <EditText
                     android:layout_marginLeft="15dp"
-                    android:id="@+id/signup_id_et"
+                    android:id="@+id/edit_id"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:focusable="true"
@@ -102,7 +102,7 @@
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ffffff"
                     android:hint="Password"
-                    android:id="@+id/signup_pw_et"
+                    android:id="@+id/edit_password"
                     android:textCursorDrawable="@null"/>
 
 
