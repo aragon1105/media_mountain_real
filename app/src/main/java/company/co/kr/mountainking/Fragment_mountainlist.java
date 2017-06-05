@@ -60,12 +60,12 @@ public class Fragment_mountainlist extends Fragment{
     private void initDataset(){
 
         myDataset = new ArrayList<>();
+        myDataset.add(new MyData("#광교산","♡ 552","581m",R.drawable.kwangkyo));
         myDataset.add(new MyData("#월출산","♡ 3217","810.7m",R.mipmap.wolchul));
         myDataset.add(new MyData("#황매산","♡ 4533","1113m",R.mipmap.hwangmae));
         myDataset.add(new MyData("#덕유산","♡ 2230","1614.2m",R.mipmap.deogyu));
         myDataset.add(new MyData("#소백산","♡ 3794","1439.6m",R.mipmap.sobaek));
         myDataset.add(new MyData("#속리산","♡ 982","1058.4m",R.mipmap.songni));
-        myDataset.add(new MyData("#광교산","♡ 552","581m",R.drawable.kwangkyo));
         myDataset.add(new MyData("#지리산","♡ 4230","1915.4m",R.mipmap.jiri));
         myDataset.add(new MyData("#설악산","♡ 5980","1707.9m",R.mipmap.seolak));
         myDataset.add(new MyData("#한라산","♡ 7283","1947.2m",R.mipmap.hanra));
