@@ -1,15 +1,8 @@
 package company.co.kr.mountainking;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.ListFragment;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -68,10 +60,22 @@ public class Fragment_mountainlist extends Fragment{
     private void initDataset(){
 
         myDataset = new ArrayList<>();
-        myDataset.add(new MyData("#광교산","♡ 352",R.drawable.kwangkyo));
-        myDataset.add(new MyData("#지리산","♡ 5230",R.mipmap.jiri));
-        myDataset.add(new MyData("#설악산","♡ 4980",R.mipmap.hanra));
-        myDataset.add(new MyData("#한라산","♡ 8283",R.mipmap.seolak));
+        myDataset.add(new MyData("#월출산","♡ 3217","810.7m",R.mipmap.wolchul));
+        myDataset.add(new MyData("#황매산","♡ 4533","1113m",R.mipmap.hwangmae));
+        myDataset.add(new MyData("#덕유산","♡ 2230","1614.2m",R.mipmap.deogyu));
+        myDataset.add(new MyData("#소백산","♡ 3794","1439.6m",R.mipmap.sobaek));
+        myDataset.add(new MyData("#속리산","♡ 982","1058.4m",R.mipmap.songni));
+        myDataset.add(new MyData("#광교산","♡ 552","581m",R.drawable.kwangkyo));
+        myDataset.add(new MyData("#지리산","♡ 4230","1915.4m",R.mipmap.jiri));
+        myDataset.add(new MyData("#설악산","♡ 5980","1707.9m",R.mipmap.seolak));
+        myDataset.add(new MyData("#한라산","♡ 7283","1947.2m",R.mipmap.hanra));
+        myDataset.add(new MyData("#관악산","♡ 1201","632.2m",R.mipmap.gwanak));
+        myDataset.add(new MyData("#치악산","♡ 1323","1282m",R.mipmap.chiak));
+        myDataset.add(new MyData("#북한산","♡ 954","835.5m",R.mipmap.bukhan));
+        myDataset.add(new MyData("#태백산","♡ 2282","1566.7m",R.mipmap.taebaek));
+        myDataset.add(new MyData("#도봉산","♡ 1589","740m",R.mipmap.dobong));
+        myDataset.add(new MyData("#내장산","♡ 875","763.5m",R.mipmap.naejang));
+        myDataset.add(new MyData("#계룡산","♡ 2231","846.4m",R.mipmap.gyeryong));
     }
 
 
@@ -109,6 +113,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         holder.mTextView.setText(mDataset.get(position).text);
         holder.mImageView.setImageResource(mDataset.get(position).img);
         holder.like.setText(mDataset.get(position).like);
+        holder.heightTextView.setText(mDataset.get(position).height);
 
         // 클릭된 산의 index를 보냄
         holder.view.setOnClickListener(new View.OnClickListener() {
@@ -141,6 +146,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         // each data item is just a string in this case
         public ImageView mImageView;
         public TextView mTextView;
+        public TextView heightTextView;
         public TextView like;
         public View view;
 
@@ -148,6 +154,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
             super(view);
             mImageView = (ImageView)view.findViewById(R.id.image);
             mTextView = (TextView)view.findViewById(R.id.textview);
+            heightTextView = (TextView)view.findViewById(R.id.mt_height);
             like = (TextView)view.findViewById(R.id.textLike);
             this.view = view;
         }
@@ -158,11 +165,13 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
 
 class MyData{
     public String text;
+    public String height;
     public String like;
     public int img;
-    public MyData(String text, String like, int img){
+    public MyData(String text, String like, String height, int img){
         this.text = text;
         this.like = like;
+        this.height = height;
         this.img = img;
     }
 }

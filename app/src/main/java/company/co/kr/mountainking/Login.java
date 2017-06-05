@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.login_activity2);
 
         btn_login = (Button) findViewById(R.id.btn_login);
@@ -38,9 +40,12 @@ public class Login extends AppCompatActivity implements  View.OnClickListener{
         btn_login.setOnClickListener(this);
         btn_signup.setOnClickListener(this);
 
-        Typeface tangak = Typeface.createFromAsset(getAssets(), "tangak.otf");
+        //Typeface tangak = Typeface.createFromAsset(getAssets(), "tangak.otf");
         TextView title = (TextView) findViewById(R.id.login_title);
-        title.setTypeface(tangak);
+        //title.setTypeface(tangak);
+
+
+
 
     }
 
