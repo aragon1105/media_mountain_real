@@ -47,73 +47,64 @@
             android:gravity="center"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_weight="2">
+            android:layout_weight="2.5">
 
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="false">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1">
 
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView_space1"
-                    android:layout_weight="1" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:src="@drawable/mountain_cc"/>
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="   Enter your ID"
-                    android:textColor="#000000"
-                    android:textColorHint="#969696"
-                    android:id="@+id/edit_id"
-                    android:layout_weight="5"
-                    android:background="@drawable/edit_text_style"/>
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/signup_id_et"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:focusable="true"
+                    android:layout_height="match_parent"
+                    android:hint="UserID"
+                    android:inputType="textPersonName"
+                    android:textColor="#ffffff"
+                    android:textCursorDrawable="@null"/>
 
-                <TextView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView_space2"
-                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="false">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1">
 
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView_space3"
-                    android:layout_weight="1" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="15"
+                    android:src="@drawable/locked"/>
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberPassword"
-                    android:layout_gravity="center"
-                    android:textColor="#000000"
-                    android:layout_weight="5"
-                    android:hint="   Password"
-                    android:textColorHint="#969696"
-                    android:background="@drawable/edit_text_style"
-                    android:id="@+id/edit_password" />
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:hint="Password"
+                    android:id="@+id/signup_pw_et"
+                    android:textCursorDrawable="@null"/>
 
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView_space4"
-                    android:layout_weight="1" />
 
             </LinearLayout>
 

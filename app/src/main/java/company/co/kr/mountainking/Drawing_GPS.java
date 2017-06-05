@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -397,7 +398,7 @@ long:127.03809482865788
             final Dialog startdialog = new Dialog(Drawing_GPS.this);
             startdialog.setContentView(R.layout.startpoint_dialog);
 
-            Button close = (Button) startdialog.findViewById(R.id.startpointbt);
+            ImageButton close = (ImageButton) startdialog.findViewById(R.id.startpointbt);
 
             close.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -421,7 +422,7 @@ long:127.03809482865788
             final Dialog savepoint1 = new Dialog(Drawing_GPS.this);
             savepoint1.setContentView(R.layout.savepoint_dialog);
 
-            Button close4 = (Button) savepoint1.findViewById(R.id.savepointbt);
+            ImageButton close4 = (ImageButton) savepoint1.findViewById(R.id.savepointbt);
 
             close4.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -447,7 +448,7 @@ long:127.03809482865788
             final Dialog savepoint2 = new Dialog(Drawing_GPS.this);
             savepoint2.setContentView(R.layout.savepoint_dialog);
 
-            Button close3 = (Button) savepoint2.findViewById(R.id.savepointbt);
+            ImageButton close3 = (ImageButton) savepoint2.findViewById(R.id.savepointbt);
 
             close3.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -476,7 +477,7 @@ long:127.03809482865788
             final Dialog savepoint3 = new Dialog(Drawing_GPS.this);
             savepoint3.setContentView(R.layout.savepoint_dialog);
 
-            Button close2 = (Button) savepoint3.findViewById(R.id.savepointbt);
+            ImageButton close2 = (ImageButton) savepoint3.findViewById(R.id.savepointbt);
 
             close2.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -502,7 +503,7 @@ long:127.03809482865788
             final Dialog finishpoint = new Dialog(Drawing_GPS.this);
             finishpoint.setContentView(R.layout.finishpoint_dialog);
 
-            Button close1 = (Button) finishpoint.findViewById(R.id.finishpointbt);
+            ImageButton close1 = (ImageButton) finishpoint.findViewById(R.id.finishpointbt);
 
             close1.setOnClickListener(new View.OnClickListener() {
                 @Override
