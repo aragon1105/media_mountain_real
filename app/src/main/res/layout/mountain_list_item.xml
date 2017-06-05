@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:paddingLeft="10dp"
 
     >
 
@@ -13,13 +14,12 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:layout_weight="1">
 
         <company.co.kr.mountainking.CircleImageView
             android:id="@+id/list_mt_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
             app:srcCompat="@drawable/somin"
             android:layout_weight="1" />
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="13">
+            android:layout_weight="18">
 
             <LinearLayout
                 android:layout_width="match_parent"
