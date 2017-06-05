@@ -9,31 +9,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_weight="4"
         android:background="@drawable/green_background"
-        android:layout_weight="4">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="4"/>
+            android:layout_weight="4" />
 
         <company.co.kr.mountainking.CircleImageView
-            android:layout_height="match_parent"
+            android:id="@+id/myimage"
             android:layout_width="match_parent"
-            android:src="@drawable/yuri"
+            android:layout_height="match_parent"
             android:layout_weight="2"
-            android:id="@+id/myimage"/>
+            android:src="@drawable/yuri" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
+            android:text="변혜영"
             android:textColor="#000000"
-            android:text="Yuri Lee"
-            android:textSize="15dp"/>
+            android:textSize="15dp" />
 
     </LinearLayout>
 
