@@ -94,23 +94,23 @@
                 android:layout_marginLeft="15dp"
                 android:layout_weight="1">
 
+                <EditText
+                    android:id="@+id/signup_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:hint="UserName"
+                    android:inputType="textPersonName"
+                    android:textColor="#ffffff"
+                    android:textCursorDrawable="@null" />
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="15"
                     android:src="@drawable/business_person"/>
-
-                <EditText
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="#ffffff"
-                    android:inputType="textPersonName"
-                    android:hint="UserName"
-                    android:id="@+id/signup_name_et"
-                    android:textCursorDrawable="@null"/>
 
             </LinearLayout>
 
@@ -133,7 +133,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="textPersonName"
+                    android:inputType="numberPassword"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#ffffff"
                     android:hint="Password"
