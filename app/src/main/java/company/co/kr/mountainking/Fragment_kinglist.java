@@ -31,16 +31,16 @@ public class Fragment_kinglist extends ListFragment {
         setListAdapter(adapter);
 
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1915.4m", "지리산", "차정환", 12, "경남 신청군");
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "632.2m", "관악산", "변혜영", 4, "서울 관악구");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "632.2m", "관악산", "변혜영", 4, "서울 관악구");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1707.9m", "설악산", "안중희", 5, "강원 인제군");
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "581m", "광교산", "변리영", 2, "경기 수원시");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.somin), "581m", "광교산", "변라영", 2, "경기 수원시");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1282m", "치악산", "차정환", 9, "강원 원주시");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "835.5m", "북한산", "오복녀", 5, "경기 고양시");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1566.7m", "태백산", "차규택", 4, "강원 태백시");
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "740m", "도봉산", "변혜영", 3, "서울 도봉구");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "740m", "도봉산", "변혜영", 3, "서울 도봉구");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1614.2m", "덕유산", "변준영", 2, "전북 무주군");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1947.2m", "한라산", "김유주", 5, "제주 제주시");
-        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1113m", "황매산", "변미영", 2, "경남 산청군");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.hwayoung), "1113m", "황매산", "변미영", 2, "경남 산청군");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1439.6m", "소백산", "차규택", 7, "충북 단양군");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "846.4m", "계룡산", "이보미", 3, "충남 계룡시");
         adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.mountains), "1058.4m", "속리산", "안중희", 5, "충북 보은군");

@@ -16,20 +16,19 @@
 
         android:layout_weight="1">
 
-        <ImageView
+        <company.co.kr.mountainking.CircleImageView
             android:id="@+id/list_mt_image"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:gravity="center"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/mountains"
+            app:srcCompat="@drawable/somin"
             android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="10">
+            android:layout_weight="13">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,24 +40,26 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:id="@+id/mountain_name"
-                    android:text=""
+                    android:text="산이름"
                     android:textColor="#000000"
                     android:layout_weight="1"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:id="@+id/mountain_height"
-                    android:textColor="#000000"
-                    android:text=""
+                    android:textColor="@color/kinglistGreen"
+                    android:text="고도"
                     android:layout_weight="1"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/mountain_location"
                     android:gravity="center"
-                    android:textColor="#000000"
-                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="@color/kinglistGreen"
+                    android:text="위치"
                     android:layout_weight="1"/>
 
             </LinearLayout>
@@ -80,8 +81,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:text="나폴레옹"
                     android:id="@+id/jungbok_king"
-                    android:textColor="#000000"
+                    android:textColor="#990000"
                     android:layout_weight="1"
                     android:textStyle="bold"/>
 
@@ -90,44 +92,14 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:id="@+id/jungbok_count"
-                    android:textColor="#000000"
+                    android:textColor="#990000"
                     android:layout_weight="1"
                     android:textStyle="bold"
-                    android:text=""/>
+                    android:text="10"/>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="#000000"
-                    android:layout_weight="1"
-                    android:text="스피드왕"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="#000000"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
-                    android:id="@+id/speed_king"
-                    android:text=""/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="#000000"
-                    android:layout_weight="1"
-                    android:textStyle="bold"
-                    android:id="@+id/speed_record"
-                    android:text=""/>
-            </LinearLayout>
+
 
         </LinearLayout>
 

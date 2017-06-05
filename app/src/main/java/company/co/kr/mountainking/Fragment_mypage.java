@@ -121,16 +121,24 @@ public class Fragment_mypage extends Fragment {
 
 
         if(Drawing_GPS.aflag==true) {
-            mymtDataset.add(new MymtData("광교산", "5회", R.drawable.mountains));
-            mymtDataset.add(new MymtData("지리산", "8회", R.drawable.mountains));
-            mymtDataset.add(new MymtData("설악산", "2회", R.drawable.mountains));
-            mymtDataset.add(new MymtData("한라산", "7회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("광교산", "5회", R.drawable.kwangkyo));
+            mymtDataset.add(new MymtData("지리산", "8회", R.drawable.jiri));
+            mymtDataset.add(new MymtData("설악산", "2회", R.drawable.seolak));
+            mymtDataset.add(new MymtData("한라산", "7회", R.drawable.hanra));
+            mymtDataset.add(new MymtData("관악산", "1회", R.mipmap.gwanak));
+            mymtDataset.add(new MymtData("내장산", "1회", R.mipmap.naejang));
+            mymtDataset.add(new MymtData("치악산", "1회", R.mipmap.chiak));
+            mymtDataset.add(new MymtData("계룡산", "2회", R.mipmap.gyeryong));
         }
         else{
-            mymtDataset.add(new MymtData("광교산","4회", R.drawable.mountains));
-            mymtDataset.add(new MymtData("지리산","8회", R.drawable.mountains));
-            mymtDataset.add(new MymtData("설악산","2회", R.drawable.mountains));
-            mymtDataset.add(new MymtData("한라산","7회", R.drawable.mountains));
+            mymtDataset.add(new MymtData("광교산","4회", R.drawable.kwangkyo));
+            mymtDataset.add(new MymtData("지리산","8회", R.drawable.jiri));
+            mymtDataset.add(new MymtData("설악산","2회", R.drawable.seolak));
+            mymtDataset.add(new MymtData("한라산","7회", R.drawable.hanra));
+            mymtDataset.add(new MymtData("관악산", "1회", R.mipmap.gwanak));
+            mymtDataset.add(new MymtData("내장산", "1회", R.mipmap.naejang));
+            mymtDataset.add(new MymtData("치악산", "1회", R.mipmap.chiak));
+            mymtDataset.add(new MymtData("계룡산", "2회", R.mipmap.gyeryong));
         }
     }
 
