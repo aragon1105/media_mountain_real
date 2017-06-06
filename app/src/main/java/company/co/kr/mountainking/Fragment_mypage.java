@@ -205,7 +205,7 @@ public class Fragment_mypage extends Fragment {
 
         BubbleData caldata = new BubbleData(labels2, caldataset);
         bubbleChart.setData(caldata);
-        caldataset.setColors(ColorTemplate.VORDIPLOM_COLORS); //
+        caldataset.setColors(ColorTemplate.PASTEL_COLORS); //
         caldataset.setHighlightEnabled(true);
         bubbleChart.animateY(4000);
 
