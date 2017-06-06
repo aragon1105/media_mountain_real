@@ -62,7 +62,7 @@
                     android:gravity="center|left"
                     android:padding="10dp"
                     android:text="산이름"
-                    android:textColor="#9AFE2E"
+                    android:textColor="#9964cd3c"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
