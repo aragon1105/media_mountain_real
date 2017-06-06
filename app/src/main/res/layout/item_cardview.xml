@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/lightsilver"
-    android:paddingTop="7dp"
+    android:paddingTop="3dp"
     android:paddingRight="2dp"
     android:paddingLeft="2dp"
-    android:paddingBottom="7dp">
+    android:paddingBottom="3dp">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardview"

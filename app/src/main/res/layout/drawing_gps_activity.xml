@@ -1,77 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Drawing_GPS">
+    tools:context=".Drawing_GPS"
+    android:weightSum="14">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-        <fragment
-            android:id="@+id/map"
-            class="com.google.android.gms.maps.MapFragment"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <fragment
+                android:id="@+id/map"
+                class="com.google.android.gms.maps.MapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/gps_mtname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:background="#66000000"
+                android:text="정복할 산을 선택해주세요."
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+
+
+        </RelativeLayout>
+
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="13"
+        android:background="@color/kinglistGreen"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_alignParentEnd="true">
+
+        <ImageButton
+            android:id="@+id/gps_btstart"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:scaleType="centerInside"
+            android:background="@color/transparent"
+            android:src="@drawable/play_button" />
 
-        <LinearLayout
+        <ImageButton
+            android:id="@+id/gps_finishbt"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:layout_alignParentEnd="true">
+            android:layout_height="match_parent"
 
-            <Button
-                android:id="@+id/gps_btstart"
-                android:layout_width="130px"
-                android:layout_height="130px"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/route" />
+            android:background="@color/transparent"
+            android:src="@drawable/check_mark"/>
 
-            <Button
-                android:id="@+id/gps_finishbt"
-                android:layout_width="130px"
-                android:layout_height="130px"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/flag" />
-
-            <Button
-                android:id="@+id/gps_resetbt"
-                android:layout_width="130px"
-                android:layout_height="130px"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/power" />
-
-            <Button
-                android:id="@+id/gps_statbt"
-                android:layout_width="130px"
-                android:layout_height="130px"
-                android:background="@drawable/multiply" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/gps_mtname"
+        <ImageButton
+            android:id="@+id/gps_resetbt"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:background="#66000000"
-            android:text="ㅇㅇ산 정복중"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:src="@drawable/close_cross"/>
 
-    </RelativeLayout>
+        <ImageButton
+            android:id="@+id/gps_statbt"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:background="@color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gear"/>
+    </LinearLayout>
 
 
-</FrameLayout>
+
+
+
+
+
+</LinearLayout>

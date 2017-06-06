@@ -1,5 +1,6 @@
 package company.co.kr.mountainking;
 
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -16,15 +17,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -40,6 +46,7 @@ import java.util.List;
 public class Fragment_mypage extends Fragment {
 
     ImageView myimage;
+    ImageView mycalory;
 
     private RecyclerView mymtRecyclerView;
     private MyMTAdapter mymtAdapter;
@@ -48,9 +55,12 @@ public class Fragment_mypage extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.mypage_fragment, container ,false);
+        final View view = inflater.inflate(R.layout.mypage_fragment, container ,false);
+
 
         myimage  = (ImageView)view.findViewById(R.id.myimage);
+        mycalory = (ImageButton)view.findViewById(R.id.calory);
+
         myimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +82,7 @@ public class Fragment_mypage extends Fragment {
 
 
 
-        LineChart lineChart = (LineChart) view.findViewById(R.id.chart);
+        final LineChart lineChart = (LineChart) view.findViewById(R.id.chart);
         ArrayList<Entry> entries = new ArrayList<>();
         if(Drawing_GPS.aflag==true) {
             entries.add(new Entry(123f, 0));//시간으로 할것!
@@ -96,7 +106,7 @@ public class Fragment_mypage extends Fragment {
 //            entries.add(new Entry(Drawing_GPS.amin, 7));
 
         }
-        LineDataSet dataset = new LineDataSet(entries, "# of Calls");
+        LineDataSet dataset = new LineDataSet(entries, "# 단위(분, m/s)");
 
         ArrayList<String> labels = new ArrayList<String>();
        if(Drawing_GPS.aflag==true) {
@@ -128,7 +138,69 @@ public class Fragment_mypage extends Fragment {
         dataset.setDrawFilled(true);
 
 
-        lineChart.animateY(5000);
+
+        mycalory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lineChart.invalidate();
+                BarChart barChart = (BarChart) view.findViewById(R.id.chart);
+                ArrayList<BarEntry> entries2 = new ArrayList<>();
+                if(Drawing_GPS.aflag==true) {
+                    entries2.add(new BarEntry(123f, 0));//시간으로 할것!
+                    entries2.add(new BarEntry(0f, 1));
+                    entries2.add(new BarEntry(139f, 2));
+                    entries2.add(new BarEntry(110f, 3));
+                    entries2.add(new BarEntry(99f, 4));
+                    entries2.add(new BarEntry(0f, 5));
+                    entries2.add(new BarEntry(154, 6));
+                    entries2.add(new BarEntry(Drawing_GPS.amin, 7));
+
+                }
+                else{
+                    entries2.add(new BarEntry(123f, 0));//시간으로 할것!
+                    entries2.add(new BarEntry(0f, 1));
+                    entries2.add(new BarEntry(139f, 2));
+                    entries2.add(new BarEntry(110f, 3));
+                    entries2.add(new BarEntry(99f, 4));
+                    entries2.add(new BarEntry(0f, 5));
+                    entries2.add(new BarEntry(154, 6));
+//            entries.add(new Entry(Drawing_GPS.amin, 7));
+
+                }
+                BarDataSet caldataset = new BarDataSet(entries2, "# 단위(분, m/s)");
+
+                ArrayList<String> labels2 = new ArrayList<String>();
+                if(Drawing_GPS.aflag==true) {
+                    labels2.add("5/29");
+                    labels2.add("5/30");
+                    labels2.add("6/1");
+                    labels2.add("6/2");
+                    labels2.add("6/3");
+                    labels2.add("6/4");
+                    labels2.add("6/5");
+                    labels2.add("6/9");
+                }
+                else{
+                    labels2.add("5/29");
+                    labels2.add("5/30");
+                    labels2.add("6/1");
+                    labels2.add("6/2");
+                    labels2.add("6/3");
+                    labels2.add("6/4");
+                    labels2.add("6/5");
+//           labels.add("6/9");
+
+                }
+
+                BarData caldata = new BarData(labels2, caldataset);
+                barChart.setData(caldata);
+                caldataset.setColors(ColorTemplate.COLORFUL_COLORS); //
+                caldataset.setHighlightEnabled(true);
+                barChart.animateY(4000);
+            }
+        });
+
+        lineChart.animateY(4000);
 
         return view;
 
