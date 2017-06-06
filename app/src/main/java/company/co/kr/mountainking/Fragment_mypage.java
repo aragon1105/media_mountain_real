@@ -19,6 +19,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,7 +47,9 @@ import java.util.List;
 public class Fragment_mypage extends Fragment {
 
     ImageView myimage;
-    ImageView mycalory;
+    ImageButton mycalory;
+    ImageButton myhiketime;
+    LinearLayout chart_container;
 
     private RecyclerView mymtRecyclerView;
     private MyMTAdapter mymtAdapter;
@@ -60,6 +63,10 @@ public class Fragment_mypage extends Fragment {
 
         myimage  = (ImageView)view.findViewById(R.id.myimage);
         mycalory = (ImageButton)view.findViewById(R.id.calory);
+        myhiketime = (ImageButton)view.findViewById(R.id.hiketime);
+
+        chart_container = (LinearLayout)view.findViewById(R.id.chart_container);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
         myimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +89,9 @@ public class Fragment_mypage extends Fragment {
 
 
 
-        final LineChart lineChart = (LineChart) view.findViewById(R.id.chart);
+        final LineChart lineChart = new LineChart(getActivity());
+        lineChart.setLayoutParams(params);
+
         ArrayList<Entry> entries = new ArrayList<>();
         if(Drawing_GPS.aflag==true) {
             entries.add(new Entry(123f, 0));//시간으로 할것!
@@ -136,70 +145,90 @@ public class Fragment_mypage extends Fragment {
         dataset.setColors(ColorTemplate.COLORFUL_COLORS); //
         dataset.setDrawCubic(true);
         dataset.setDrawFilled(true);
+        lineChart.animateY(4000);
 
 
+        final BarChart barChart = new BarChart(getActivity());
+        barChart.setLayoutParams(params);
+
+        ArrayList<BarEntry> entries2 = new ArrayList<>();
+        if(Drawing_GPS.aflag==true) {
+            entries2.add(new BarEntry(123f, 0));//시간으로 할것!
+            entries2.add(new BarEntry(0f, 1));
+            entries2.add(new BarEntry(139f, 2));
+            entries2.add(new BarEntry(110f, 3));
+            entries2.add(new BarEntry(99f, 4));
+            entries2.add(new BarEntry(0f, 5));
+            entries2.add(new BarEntry(154, 6));
+            entries2.add(new BarEntry(Drawing_GPS.amin, 7));
+
+        }
+        else{
+            entries2.add(new BarEntry(123f, 0));//시간으로 할것!
+            entries2.add(new BarEntry(0f, 1));
+            entries2.add(new BarEntry(139f, 2));
+            entries2.add(new BarEntry(110f, 3));
+            entries2.add(new BarEntry(99f, 4));
+            entries2.add(new BarEntry(0f, 5));
+            entries2.add(new BarEntry(154, 6));
+//            entries.add(new Entry(Drawing_GPS.amin, 7));
+
+        }
+        BarDataSet caldataset = new BarDataSet(entries2, "# 단위(분, m/s)");
+
+        ArrayList<String> labels2 = new ArrayList<String>();
+        if(Drawing_GPS.aflag==true) {
+            labels2.add("5/29");
+            labels2.add("5/30");
+            labels2.add("6/1");
+            labels2.add("6/2");
+            labels2.add("6/3");
+            labels2.add("6/4");
+            labels2.add("6/5");
+            labels2.add("6/9");
+        }
+        else{
+            labels2.add("5/29");
+            labels2.add("5/30");
+            labels2.add("6/1");
+            labels2.add("6/2");
+            labels2.add("6/3");
+            labels2.add("6/4");
+            labels2.add("6/5");
+//           labels.add("6/9");
+
+        }
+
+        BarData caldata = new BarData(labels2, caldataset);
+        barChart.setData(caldata);
+        caldataset.setColors(ColorTemplate.COLORFUL_COLORS); //
+        caldataset.setHighlightEnabled(true);
+        barChart.animateY(4000);
+
+
+        chart_container.addView(lineChart);
 
         mycalory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BarChart barChart = (BarChart) view.findViewById(R.id.chart);
-                ArrayList<BarEntry> entries2 = new ArrayList<>();
-                if(Drawing_GPS.aflag==true) {
-                    entries2.add(new BarEntry(123f, 0));//시간으로 할것!
-                    entries2.add(new BarEntry(0f, 1));
-                    entries2.add(new BarEntry(139f, 2));
-                    entries2.add(new BarEntry(110f, 3));
-                    entries2.add(new BarEntry(99f, 4));
-                    entries2.add(new BarEntry(0f, 5));
-                    entries2.add(new BarEntry(154, 6));
-                    entries2.add(new BarEntry(Drawing_GPS.amin, 7));
+                chart_container.removeAllViews();
+                chart_container.addView(barChart);
 
-                }
-                else{
-                    entries2.add(new BarEntry(123f, 0));//시간으로 할것!
-                    entries2.add(new BarEntry(0f, 1));
-                    entries2.add(new BarEntry(139f, 2));
-                    entries2.add(new BarEntry(110f, 3));
-                    entries2.add(new BarEntry(99f, 4));
-                    entries2.add(new BarEntry(0f, 5));
-                    entries2.add(new BarEntry(154, 6));
-//            entries.add(new Entry(Drawing_GPS.amin, 7));
-
-                }
-                BarDataSet caldataset = new BarDataSet(entries2, "# 단위(분, m/s)");
-
-                ArrayList<String> labels2 = new ArrayList<String>();
-                if(Drawing_GPS.aflag==true) {
-                    labels2.add("5/29");
-                    labels2.add("5/30");
-                    labels2.add("6/1");
-                    labels2.add("6/2");
-                    labels2.add("6/3");
-                    labels2.add("6/4");
-                    labels2.add("6/5");
-                    labels2.add("6/9");
-                }
-                else{
-                    labels2.add("5/29");
-                    labels2.add("5/30");
-                    labels2.add("6/1");
-                    labels2.add("6/2");
-                    labels2.add("6/3");
-                    labels2.add("6/4");
-                    labels2.add("6/5");
-//           labels.add("6/9");
-
-                }
-
-                BarData caldata = new BarData(labels2, caldataset);
-                barChart.setData(caldata);
-                caldataset.setColors(ColorTemplate.COLORFUL_COLORS); //
-                caldataset.setHighlightEnabled(true);
-                barChart.animateY(4000);
             }
         });
 
-        lineChart.animateY(4000);
+        myhiketime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chart_container.removeAllViews();
+                chart_container.addView(lineChart);
+
+            }
+        });
+
+
+
+
 
         return view;
 
