@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.BubbleChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -32,6 +33,9 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.BubbleData;
+import com.github.mikephil.charting.data.BubbleDataSet;
+import com.github.mikephil.charting.data.BubbleEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -148,33 +152,33 @@ public class Fragment_mypage extends Fragment {
         lineChart.animateY(4000);
 
 
-        final BarChart barChart = new BarChart(getActivity());
-        barChart.setLayoutParams(params);
+        final BubbleChart bubbleChart = new BubbleChart(getActivity());
+        bubbleChart.setLayoutParams(params);
 
-        ArrayList<BarEntry> entries2 = new ArrayList<>();
+        ArrayList<BubbleEntry> entries2 = new ArrayList<>();
         if(Drawing_GPS.aflag==true) {
-            entries2.add(new BarEntry(123f, 0));//시간으로 할것!
-            entries2.add(new BarEntry(0f, 1));
-            entries2.add(new BarEntry(139f, 2));
-            entries2.add(new BarEntry(110f, 3));
-            entries2.add(new BarEntry(99f, 4));
-            entries2.add(new BarEntry(0f, 5));
-            entries2.add(new BarEntry(154, 6));
-            entries2.add(new BarEntry(Drawing_GPS.amin, 7));
+            entries2.add(new BubbleEntry(0, 123f,123f));//시간으로 할것!
+            entries2.add(new BubbleEntry(1,0f,0f));
+            entries2.add(new BubbleEntry(2, 139f, 139f));
+            entries2.add(new BubbleEntry(3, 110f, 110f));
+            entries2.add(new BubbleEntry(4,99f,99f));
+            entries2.add(new BubbleEntry(5, 0f,0f));
+            entries2.add(new BubbleEntry(6 ,154f, 154f));
+            entries2.add(new BubbleEntry(7, Drawing_GPS.amin,Drawing_GPS.amin));
 
         }
         else{
-            entries2.add(new BarEntry(123f, 0));//시간으로 할것!
-            entries2.add(new BarEntry(0f, 1));
-            entries2.add(new BarEntry(139f, 2));
-            entries2.add(new BarEntry(110f, 3));
-            entries2.add(new BarEntry(99f, 4));
-            entries2.add(new BarEntry(0f, 5));
-            entries2.add(new BarEntry(154, 6));
+            entries2.add(new BubbleEntry(0, 123f,123f));//시간으로 할것!
+            entries2.add(new BubbleEntry(1,0f,0f));
+            entries2.add(new BubbleEntry(2, 139f, 139f));
+            entries2.add(new BubbleEntry(3, 110f, 110f));
+            entries2.add(new BubbleEntry(4,99f,99f));
+            entries2.add(new BubbleEntry(5, 0f,0f));
+            entries2.add(new BubbleEntry(6 ,154f, 154f));
 //            entries.add(new Entry(Drawing_GPS.amin, 7));
 
         }
-        BarDataSet caldataset = new BarDataSet(entries2, "# 단위(분, m/s)");
+        BubbleDataSet caldataset = new BubbleDataSet(entries2, "# 단위(분, m/s)");
 
         ArrayList<String> labels2 = new ArrayList<String>();
         if(Drawing_GPS.aflag==true) {
@@ -199,11 +203,11 @@ public class Fragment_mypage extends Fragment {
 
         }
 
-        BarData caldata = new BarData(labels2, caldataset);
-        barChart.setData(caldata);
+        BubbleData caldata = new BubbleData(labels2, caldataset);
+        bubbleChart.setData(caldata);
         caldataset.setColors(ColorTemplate.COLORFUL_COLORS); //
         caldataset.setHighlightEnabled(true);
-        barChart.animateY(4000);
+        bubbleChart.animateY(4000);
 
 
         chart_container.addView(lineChart);
@@ -212,7 +216,7 @@ public class Fragment_mypage extends Fragment {
             @Override
             public void onClick(View v) {
                 chart_container.removeAllViews();
-                chart_container.addView(barChart);
+                chart_container.addView(bubbleChart);
 
             }
         });
