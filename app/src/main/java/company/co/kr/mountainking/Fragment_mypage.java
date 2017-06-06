@@ -178,7 +178,7 @@ public class Fragment_mypage extends Fragment {
 //            entries.add(new Entry(Drawing_GPS.amin, 7));
 
         }
-        BubbleDataSet caldataset = new BubbleDataSet(entries2, "# 단위(분, m/s)");
+        BubbleDataSet caldataset = new BubbleDataSet(entries2, "# 단위(1칼로리)");
 
         ArrayList<String> labels2 = new ArrayList<String>();
         if(Drawing_GPS.aflag==true) {
@@ -205,7 +205,7 @@ public class Fragment_mypage extends Fragment {
 
         BubbleData caldata = new BubbleData(labels2, caldataset);
         bubbleChart.setData(caldata);
-        caldataset.setColors(ColorTemplate.COLORFUL_COLORS); //
+        caldataset.setColors(ColorTemplate.VORDIPLOM_COLORS); //
         caldataset.setHighlightEnabled(true);
         bubbleChart.animateY(4000);
 
@@ -217,6 +217,7 @@ public class Fragment_mypage extends Fragment {
             public void onClick(View v) {
                 chart_container.removeAllViews();
                 chart_container.addView(bubbleChart);
+                bubbleChart.animateY(4000);
 
             }
         });
@@ -226,6 +227,7 @@ public class Fragment_mypage extends Fragment {
             public void onClick(View view) {
                 chart_container.removeAllViews();
                 chart_container.addView(lineChart);
+                lineChart.animateY(4000);
 
             }
         });
