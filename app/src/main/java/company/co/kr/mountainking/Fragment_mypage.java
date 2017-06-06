@@ -96,7 +96,7 @@ public class Fragment_mypage extends Fragment {
 //            entries.add(new Entry(Drawing_GPS.amin, 7));
 
         }
-        LineDataSet dataset = new LineDataSet(entries, "# of Calls");
+        LineDataSet dataset = new LineDataSet(entries, "# 단위(분, m/s)");
 
         ArrayList<String> labels = new ArrayList<String>();
        if(Drawing_GPS.aflag==true) {

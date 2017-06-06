@@ -29,7 +29,7 @@
         android:layout_height="match_parent"
         android:background="#ffffff"
         android:layout_weight="3.2"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -108,6 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginBottom="5dp"
         android:background="@mipmap/wolchul"
         android:layout_weight="3.5">
 
@@ -247,7 +248,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="블랙야크 바람막이"
+                    android:text="12355분"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:textColor="#000000"/>
@@ -305,7 +306,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="블랙야크 바람막이"
+                    android:text="789분"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:textColor="#000000"/>
@@ -358,7 +359,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="블랙야크 바람막이"
+                    android:text="572분"
                     android:gravity="center"
                     android:layout_weight="1"
                     android:textColor="#000000"/>

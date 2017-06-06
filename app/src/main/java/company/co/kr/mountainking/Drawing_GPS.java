@@ -60,10 +60,10 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     static Boolean aflag=false;//이걸로 다 플래그 걸어서 나머지 페이지에서 true일때로 사용하면 됨!!
     static int amin=0;
    // static final LatLng GWang=new LatLng()
-    Button btn_str;
-    Button btn_fini;
-    Button btn_rst;
-    Button btn_sts;
+    ImageButton btn_str;
+    ImageButton btn_fini;
+    ImageButton btn_rst;
+    ImageButton btn_sts;
 
     private GoogleMap googleMap;
     private GpsInfo gps;
@@ -130,30 +130,34 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
             }
         }
 
-        btn_str=(Button) findViewById(R.id.gps_btstart);
-        btn_fini=(Button) findViewById(R.id.gps_finishbt);
-        btn_rst=(Button) findViewById(R.id.gps_resetbt);
-        btn_sts=(Button) findViewById(R.id.gps_statbt);
+        btn_str=(ImageButton) findViewById(R.id.gps_btstart);
+        btn_fini=(ImageButton) findViewById(R.id.gps_finishbt);
+        btn_rst=(ImageButton) findViewById(R.id.gps_resetbt);
+        btn_sts=(ImageButton) findViewById(R.id.gps_statbt);
 
 
         gpsname = (TextView) findViewById(R.id.gps_mtname);
 
         if(pos==0){
             mtname="광교산";
+            gpsname.setText(mtname+" 정복중");
         }
         else if(pos==1){
             mtname="지리산";
+            gpsname.setText(mtname+" 정복중");
         }
         else if(pos==2){
             mtname="설악산";
+            gpsname.setText(mtname+" 정복중");
         }
         else if(pos==3){
             mtname="한라산";
+            gpsname.setText(mtname+" 정복중");
         }
         else if(pos==100){
-            mtname="oo산";
+            gpsname.setText("정복할 산을 설정해주세요.");
         }
-        gpsname.setText(mtname+" 정복중");
+
 
         handler=new Handler(){
             public void handleMessage(Message message) {
@@ -196,8 +200,10 @@ public class Drawing_GPS extends Activity implements OnMapReadyCallback{
     @Override
     public void onMapReady(GoogleMap map) {
 
-
-        gpsname.setText(mtname+" 정복중");
+        if(pos != 100){
+            gpsname.setText(mtname+" 정복중");
+        }
+        //gpsname.setText("정복할 산을 설정해주세요.");
         googleMap = map;
         googleMap.clear();//리셋 에서 넣어둘려고 잡아둔것임!
 
