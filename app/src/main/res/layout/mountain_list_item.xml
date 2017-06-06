@@ -17,6 +17,7 @@
         android:layout_weight="1">
 
         <company.co.kr.mountainking.CircleImageView
+            android:layout_margin="5dp"
             android:id="@+id/list_mt_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

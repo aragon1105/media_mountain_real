@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -60,22 +62,22 @@ public class Fragment_mountainlist extends Fragment{
     private void initDataset(){
 
         myDataset = new ArrayList<>();
-        myDataset.add(new MyData("#광교산","♡ 552","581m",R.drawable.kwangkyo));
-        myDataset.add(new MyData("#월출산","♡ 3217","810.7m",R.mipmap.wolchul));
-        myDataset.add(new MyData("#황매산","♡ 4533","1113m",R.mipmap.hwangmae));
-        myDataset.add(new MyData("#덕유산","♡ 2230","1614.2m",R.mipmap.deogyu));
-        myDataset.add(new MyData("#소백산","♡ 3794","1439.6m",R.mipmap.sobaek));
-        myDataset.add(new MyData("#속리산","♡ 982","1058.4m",R.mipmap.songni));
-        myDataset.add(new MyData("#지리산","♡ 4230","1915.4m",R.mipmap.jiri));
-        myDataset.add(new MyData("#설악산","♡ 5980","1707.9m",R.mipmap.seolak));
-        myDataset.add(new MyData("#한라산","♡ 7283","1947.2m",R.mipmap.hanra));
-        myDataset.add(new MyData("#관악산","♡ 1201","632.2m",R.mipmap.gwanak));
-        myDataset.add(new MyData("#치악산","♡ 1323","1282m",R.mipmap.chiak));
-        myDataset.add(new MyData("#북한산","♡ 954","835.5m",R.mipmap.bukhan));
-        myDataset.add(new MyData("#태백산","♡ 2282","1566.7m",R.mipmap.taebaek));
-        myDataset.add(new MyData("#도봉산","♡ 1589","740m",R.mipmap.dobong));
-        myDataset.add(new MyData("#내장산","♡ 875","763.5m",R.mipmap.naejang));
-        myDataset.add(new MyData("#계룡산","♡ 2231","846.4m",R.mipmap.gyeryong));
+        myDataset.add(new MyData("#광교산","552","581m","광교산은 이런산이요",R.drawable.kwangkyo));
+        myDataset.add(new MyData("#월출산","3217","810.7m","광교산은 이런산이요",R.mipmap.wolchul));
+        myDataset.add(new MyData("#황매산","4533","1113m","광교산은 이런산이요",R.mipmap.hwangmae));
+        myDataset.add(new MyData("#덕유산","2230","1614.2m","광교산은 이런산이요",R.mipmap.deogyu));
+        myDataset.add(new MyData("#소백산","3794","1439.6m","광교산은 이런산이요",R.mipmap.sobaek));
+        myDataset.add(new MyData("#속리산","982","1058.4m","광교산은 이런산이요",R.mipmap.songni));
+        myDataset.add(new MyData("#지리산","4230","1915.4m","광교산은 이런산이요",R.mipmap.jiri));
+        myDataset.add(new MyData("#설악산","5980","1707.9m","광교산은 이런산이요",R.mipmap.seolak));
+        myDataset.add(new MyData("#한라산","7283","1947.2m","광교산은 이런산이요",R.mipmap.hanra));
+        myDataset.add(new MyData("#관악산","1201","632.2m","광교산은 이런산이요",R.mipmap.gwanak));
+        myDataset.add(new MyData("#치악산","1323","1282m","광교산은 이런산이요",R.mipmap.chiak));
+        myDataset.add(new MyData("#북한산","954","835.5m","광교산은 이런산이요",R.mipmap.bukhan));
+        myDataset.add(new MyData("#태백산","2282","1566.7m","광교산은 이런산이요",R.mipmap.taebaek));
+        myDataset.add(new MyData("#도봉산","1589","740m","광교산은 이런산이요",R.mipmap.dobong));
+        myDataset.add(new MyData("#내장산","875","763.5m","광교산은 이런산이요",R.mipmap.naejang));
+        myDataset.add(new MyData("#계룡산","2231","846.4m","광교산은 이런산이요",R.mipmap.gyeryong));
     }
 
 
@@ -148,6 +150,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         public TextView mTextView;
         public TextView heightTextView;
         public TextView like;
+        public TextView explain;
         public View view;
 
         public ViewHolder(View view) {
@@ -156,6 +159,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
             mTextView = (TextView)view.findViewById(R.id.textview);
             heightTextView = (TextView)view.findViewById(R.id.mt_height);
             like = (TextView)view.findViewById(R.id.textLike);
+            explain = (TextView)view.findViewById(R.id.textExplain);
             this.view = view;
         }
     }
@@ -167,12 +171,14 @@ class MyData{
     public String text;
     public String height;
     public String like;
+    public String explain;
     public int img;
-    public MyData(String text, String like, String height, int img){
+    public MyData(String text, String like, String height, String ex, int img){
         this.text = text;
         this.like = like;
         this.height = height;
         this.img = img;
+        this.explain = ex;
     }
 }
 
