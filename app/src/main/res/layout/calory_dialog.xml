@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/chart"></com.github.mikephil.charting.charts.LineChart>
+            android:id="@+id/chart_calory"></com.github.mikephil.charting.charts.LineChart>
 
 
     </LinearLayout>
@@ -53,12 +53,11 @@
             android:layout_weight="30"/>
 
         <Button
-            android:id="@+id/close_dialog"
+            android:id="@+id/close_calorydialog"
             android:layout_width="match_parent"
             android:background="@color/transparent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:layout_weight="1"
             android:gravity="center"
             android:textColor="#000000"
             android:text="close" />
