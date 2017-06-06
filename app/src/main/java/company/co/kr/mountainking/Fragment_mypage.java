@@ -142,7 +142,6 @@ public class Fragment_mypage extends Fragment {
         mycalory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lineChart.invalidate();
                 BarChart barChart = (BarChart) view.findViewById(R.id.chart);
                 ArrayList<BarEntry> entries2 = new ArrayList<>();
                 if(Drawing_GPS.aflag==true) {

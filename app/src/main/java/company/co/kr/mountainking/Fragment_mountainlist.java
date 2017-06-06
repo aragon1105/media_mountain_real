@@ -115,6 +115,7 @@ class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.ViewHolder> {
         holder.mTextView.setText(mDataset.get(position).text);
         holder.mImageView.setImageResource(mDataset.get(position).img);
         holder.like.setText(mDataset.get(position).like);
+        holder.explain.setText(mDataset.get(position).explain);
         holder.heightTextView.setText(mDataset.get(position).height);
 
         // 클릭된 산의 index를 보냄
