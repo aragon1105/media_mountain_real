@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -45,11 +46,13 @@ public class Mypage_profile extends AppCompatActivity implements View.OnClickLis
     private Button buttonUpload;
 
     private ImageView imageView;
-    String id;
+
     private Bitmap bitmap;
 
     private Uri filePath;
 
+    private String id;
+    private String name;
     ProgressDialog loading;
 
     @Override
@@ -60,7 +63,8 @@ public class Mypage_profile extends AppCompatActivity implements View.OnClickLis
             getWindow().setStatusBarColor(Color.GRAY);
         }
 
-        id = GlobalApplication.getString(getApplicationContext(),"email");
+        id = GlobalApplication.getString(getApplicationContext(),"userid");
+        name=GlobalApplication.getString(getApplicationContext(),"username");
         buttonChoose = (Button) findViewById(R.id.buttonChoose);
         buttonUpload = (Button) findViewById(R.id.buttonUpload);
 
@@ -68,6 +72,9 @@ public class Mypage_profile extends AppCompatActivity implements View.OnClickLis
 
         buttonChoose.setOnClickListener(this);
         buttonUpload.setOnClickListener(this);
+
+         Log.d("asdf"," : "+id);
+        Log.d("asdf"," : "+name);
 
     }
 
@@ -116,16 +123,16 @@ public class Mypage_profile extends AppCompatActivity implements View.OnClickLis
         bmp.compress(Bitmap.CompressFormat.JPEG, 20, baos);
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        Log.d("as",""+encodedImage);
         return encodedImage;
     }
 
 
-    private void profile(final String image, final String email) {
+    private void profile(final String image, final String id) {
         // Tag used to cancel the request
         String tag_string_req = "req_profile_upload";
 
-        StringRequest strReq = new StringRequest(Request.Method.POST,
-                "http://202.30.23.51/~sap16t11/foodfolder/index.php", new Response.Listener<String>() {
+        StringRequest strReq = new StringRequest(Request.Method.POST,"http://52.78.108.188/mtking/index.php", new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -136,7 +143,7 @@ public class Mypage_profile extends AppCompatActivity implements View.OnClickLis
                         //loading.dismiss();
                         Toast.makeText(Mypage_profile.this, "업로드 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Mypage_profile.this,Fragment_mypage.class);
-                        intent.putExtra("email", id);
+                    //    intent.putExtra("id", id);
                         startActivity(intent);
                         finish();
                     } else {
@@ -163,7 +170,7 @@ public class Mypage_profile extends AppCompatActivity implements View.OnClickLis
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("tag", "profileimage");
                 params.put("image", image);
-                params.put("email",email);
+                params.put("id",id);
                 return params;
             }
 
