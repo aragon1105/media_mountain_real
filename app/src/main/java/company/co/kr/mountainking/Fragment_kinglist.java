@@ -42,12 +42,12 @@ public class Fragment_kinglist extends ListFragment {
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "740m", "도봉산", "변혜영", 3, "서울 도봉구");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.jinung), "1614.2m", "덕유산", "변준영", 2, "전북 무주군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.mido), "1947.2m", "한라산", "김유주", 5, "제주 제주시");
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.hwayoung), "1113m", "황매산", "변미영", 2, "경남 산청군");
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.hwayoung), "1113m", "황매산", "변라영", 2, "경남 산청군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.seokwoo), "1439.6m", "소백산", "차규택", 7, "충북 단양군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.soyeon), "846.4m", "계룡산", "이보미", 3, "충남 계룡시");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.leejun), "1058.4m", "속리산", "안중희", 5, "충북 보은군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.oksuk), "810.7m", "월출산", "오복녀", 2, "전남 영암군");
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.hyoseop), "763.5m", "내장산", "박철수", 7, "전북 정읍시");
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.somin), "763.5m", "내장산", "변미영", 7, "전북 정읍시");
         }
         else{
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "581m", "광교산", "변혜영", 4, "경기 수원시");
@@ -60,12 +60,12 @@ public class Fragment_kinglist extends ListFragment {
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.yuri), "740m", "도봉산", "변혜영", 3, "서울 도봉구");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.jinung), "1614.2m", "덕유산", "변준영", 2, "전북 무주군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.mido), "1947.2m", "한라산", "김유주", 5, "제주 제주시");
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.hwayoung), "1113m", "황매산", "변미영", 2, "경남 산청군");
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.hwayoung), "1113m", "황매산", "변라영", 2, "경남 산청군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.seokwoo), "1439.6m", "소백산", "차규택", 7, "충북 단양군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.soyeon), "846.4m", "계룡산", "이보미", 3, "충남 계룡시");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.leejun), "1058.4m", "속리산", "안중희", 5, "충북 보은군");
             adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.oksuk), "810.7m", "월출산", "오복녀", 2, "전남 영암군");
-            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.mipmap.hyoseop), "763.5m", "내장산", "박철수", 7, "전북 정읍시");
+            adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.somin), "763.5m", "내장산", "변미영", 7, "전북 정읍시");
         }
 
 
