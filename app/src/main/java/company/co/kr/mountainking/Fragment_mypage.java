@@ -60,6 +60,9 @@ public class Fragment_mypage extends Fragment {
     private RecyclerView.LayoutManager mymtLayoutManager;
     private ArrayList<MymtData> mymtDataset;
 
+    private int weight=48;
+    private double met=7.5;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.mypage_fragment, container ,false);
@@ -157,24 +160,32 @@ public class Fragment_mypage extends Fragment {
 
         ArrayList<BubbleEntry> entries2 = new ArrayList<>();
         if(Drawing_GPS.aflag==true) {
-            entries2.add(new BubbleEntry(0, 123f,123f));//시간으로 할것!
+            int a=Drawing_GPS.amin;
+            //int a=122;
+            int k;
+            k= (int) (7.5*(3.5*weight*a)/1000* 5);
+            entries2.add(new BubbleEntry(0, 733f,733f));//이거 칼로리임!
             entries2.add(new BubbleEntry(1,0f,0f));
-            entries2.add(new BubbleEntry(2, 139f, 139f));
-            entries2.add(new BubbleEntry(3, 110f, 110f));
-            entries2.add(new BubbleEntry(4,99f,99f));
+            entries2.add(new BubbleEntry(2, 839f, 839f));
+            entries2.add(new BubbleEntry(3, 790f, 790f));
+            entries2.add(new BubbleEntry(4,804f,804f));
             entries2.add(new BubbleEntry(5, 0f,0f));
-            entries2.add(new BubbleEntry(6 ,154f, 154f));
-            entries2.add(new BubbleEntry(7, Drawing_GPS.amin,Drawing_GPS.amin));
+            entries2.add(new BubbleEntry(6 ,754f, 754f));
+       /*     int a=Drawing_GPS.amin;
+            //int a=122;
+            int k;
+            k= (int) (7.5*(3.5*weight*a)/1000* 5);*/
+            entries2.add(new BubbleEntry(7, k,k));
 
         }
         else{
-            entries2.add(new BubbleEntry(0, 123f,123f));//시간으로 할것!
+            entries2.add(new BubbleEntry(0, 733f,733f));//이거 칼로리임!
             entries2.add(new BubbleEntry(1,0f,0f));
-            entries2.add(new BubbleEntry(2, 139f, 139f));
-            entries2.add(new BubbleEntry(3, 110f, 110f));
-            entries2.add(new BubbleEntry(4,99f,99f));
+            entries2.add(new BubbleEntry(2, 839f, 839f));
+            entries2.add(new BubbleEntry(3, 790f, 790f));
+            entries2.add(new BubbleEntry(4,804f,804f));
             entries2.add(new BubbleEntry(5, 0f,0f));
-            entries2.add(new BubbleEntry(6 ,154f, 154f));
+            entries2.add(new BubbleEntry(6 ,754f, 754f));
 //            entries.add(new Entry(Drawing_GPS.amin, 7));
 
         }

@@ -282,6 +282,7 @@ long:127.03809482865788//정상지점
             @Override
             public void onClick(View view) {
 
+
                 gpsname.setText(mtname+" 등산 끝!");
                 //flag=false;
 
@@ -321,6 +322,7 @@ long:127.03809482865788//정상지점
             public void onClick(View view) {
                 googleMap.clear();
                 polyop=new PolylineOptions();
+
 
                 hour=0;
                 minute=0;
